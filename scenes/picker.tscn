@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2ywoof6fdwf0"]
+
+[ext_resource type="Shader" path="res://scenes/background.gdshader" id="1_o6pei"]
+[ext_resource type="Script" path="res://scenes/picker.gd" id="1_w4d43"]
+[ext_resource type="Texture2D" uid="uid://cyp4mpqgg8t7m" path="res://assets/background.jpeg" id="2_e6707"]
+[ext_resource type="Texture2D" uid="uid://rx5rlwvn0y2a" path="res://assets/MainButton_normal.png" id="3_noitr"]
+[ext_resource type="Texture2D" uid="uid://df8rkjeo6y0lx" path="res://assets/MainButton_pressed.png" id="4_jyl87"]
+[ext_resource type="Script" path="res://scenes/main_button.gd" id="5_b0au0"]
+[ext_resource type="Texture2D" uid="uid://bdts1pkh0abau" path="res://assets/close.png" id="7_mhpgj"]
+[ext_resource type="Script" path="res://scenes/quit_button.gd" id="8_n634a"]
+[ext_resource type="Texture2D" uid="uid://bm8dqjfa1li74" path="res://assets/settings.png" id="9_4vnfi"]
+[ext_resource type="Script" path="res://scenes/settings_button.gd" id="10_85xoc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q00xh"]
+shader = ExtResource("1_o6pei")
+shader_parameter/speed = 0.025
+shader_parameter/freq = 3.0
+shader_parameter/blurness = 0.0
+
+[node name="picker" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_w4d43")
+
+[node name="Backgorund" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_q00xh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_e6707")
+
+[node name="MainButton" type="TextureButton" parent="."]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.95
+anchor_right = 0.5
+anchor_bottom = 0.95
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+button_mask = 7
+texture_normal = ExtResource("3_noitr")
+texture_pressed = ExtResource("4_jyl87")
+stretch_mode = 0
+script = ExtResource("5_b0au0")
+
+[node name="QuitButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.95
+anchor_right = 0.05
+anchor_bottom = 0.95
+offset_top = -100.0
+offset_right = 100.0
+grow_vertical = 0
+texture_normal = ExtResource("7_mhpgj")
+stretch_mode = 0
+script = ExtResource("8_n634a")
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95
+anchor_top = 0.95
+anchor_right = 0.95
+anchor_bottom = 0.95
+offset_left = -100.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("9_4vnfi")
+stretch_mode = 0
+script = ExtResource("10_85xoc")

@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://8qy5swscipeg"]
+
+[ext_resource type="FontFile" uid="uid://b3568hqqk8s5n" path="res://assets/font.ttf" id="1_ye81s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqo6t"]
+bg_color = Color(0.187176, 0.187176, 0.187176, 0.788235)
+
+[resource]
+default_font = ExtResource("1_ye81s")
+default_font_size = 24
+TabContainer/font_sizes/font_size = 32
+TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_xqo6t")

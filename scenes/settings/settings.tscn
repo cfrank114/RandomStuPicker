@@ -1,0 +1,240 @@
+[gd_scene load_steps=19 format=3 uid="uid://bjakb5fqhtj3p"]
+
+[ext_resource type="Script" path="res://scenes/settings/tab_container.gd" id="1_6pmiw"]
+[ext_resource type="Shader" path="res://scenes/background.gdshader" id="1_y0nas"]
+[ext_resource type="Texture2D" uid="uid://cyp4mpqgg8t7m" path="res://assets/background.jpeg" id="2_ppmro"]
+[ext_resource type="Script" path="res://scenes/settings/from.gd" id="2_qee63"]
+[ext_resource type="Script" path="res://scenes/settings/to.gd" id="3_vvmdj"]
+[ext_resource type="LabelSettings" uid="uid://dp4fvk4xiulpv" path="res://scenes/settings/normal.tres" id="4_mq77w"]
+[ext_resource type="Script" path="res://scenes/settings/item_list.gd" id="4_oftwq"]
+[ext_resource type="Texture2D" uid="uid://b2s38q8uvegif" path="res://assets/back.png" id="5_3x8nv"]
+[ext_resource type="Theme" uid="uid://8qy5swscipeg" path="res://scenes/settings/normal_theme.tres" id="5_jtk6j"]
+[ext_resource type="Script" path="res://scenes/settings/v_box_container.gd" id="6_sikj4"]
+[ext_resource type="FontFile" uid="uid://b3568hqqk8s5n" path="res://assets/font.ttf" id="7_vtash"]
+[ext_resource type="Script" path="res://scenes/settings/res.gd" id="8_clatf"]
+[ext_resource type="Script" path="res://scenes/settings/return_button.gd" id="8_msj54"]
+[ext_resource type="Script" path="res://scenes/settings/ver.gd" id="10_0p8m1"]
+[ext_resource type="Script" path="res://scenes/settings/fullscreen.gd" id="11_64vls"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b688o"]
+shader = ExtResource("1_y0nas")
+shader_parameter/speed = 0.025
+shader_parameter/freq = 3.0
+shader_parameter/blurness = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_yf7r2"]
+font_size = 32
+font_color = Color(0.512776, 0.995466, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_te371"]
+font = ExtResource("7_vtash")
+font_size = 64
+font_color = Color(0, 0.641315, 0.863305, 1)
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backgorund" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_b688o")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -311.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ppmro")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_jtk6j")
+current_tab = 1
+script = ExtResource("1_6pmiw")
+
+[node name="Settings" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Items" type="VBoxContainer" parent="TabContainer/Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015
+anchor_top = 0.015
+anchor_right = 0.985
+anchor_bottom = 0.985
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TabContainer/Settings/Items"]
+layout_mode = 2
+text = "抽取设置"
+label_settings = SubResource("LabelSettings_yf7r2")
+
+[node name="Range" type="HBoxContainer" parent="TabContainer/Settings/Items"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Settings/Items/Range"]
+layout_mode = 2
+text = "范围"
+
+[node name="Control" type="Control" parent="TabContainer/Settings/Items/Range"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="From" type="SpinBox" parent="TabContainer/Settings/Items/Range"]
+layout_mode = 2
+theme = ExtResource("5_jtk6j")
+rounded = true
+script = ExtResource("2_qee63")
+
+[node name="To" type="SpinBox" parent="TabContainer/Settings/Items/Range"]
+layout_mode = 2
+theme = ExtResource("5_jtk6j")
+script = ExtResource("3_vvmdj")
+
+[node name="Except" type="HBoxContainer" parent="TabContainer/Settings/Items"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="TabContainer/Settings/Items/Except"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "排除
+"
+
+[node name="Control" type="Control" parent="TabContainer/Settings/Items/Except"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Settings/Items/Except"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.13
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/Items/Except/ScrollContainer"]
+layout_mode = 2
+theme = ExtResource("5_jtk6j")
+script = ExtResource("6_sikj4")
+
+[node name="Label2" type="Label" parent="TabContainer/Settings/Items"]
+layout_mode = 2
+text = "图像"
+label_settings = SubResource("LabelSettings_yf7r2")
+
+[node name="Res" type="HBoxContainer" parent="TabContainer/Settings/Items"]
+layout_mode = 2
+script = ExtResource("8_clatf")
+
+[node name="Label" type="Label" parent="TabContainer/Settings/Items/Res"]
+layout_mode = 2
+text = "分辨率"
+
+[node name="Control" type="Control" parent="TabContainer/Settings/Items/Res"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemList" type="ItemList" parent="TabContainer/Settings/Items/Res"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+script = ExtResource("4_oftwq")
+
+[node name="Fullscreen" type="HBoxContainer" parent="TabContainer/Settings/Items"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Settings/Items/Fullscreen"]
+layout_mode = 2
+text = "全屏"
+
+[node name="Control" type="Control" parent="TabContainer/Settings/Items/Fullscreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Fullscreen" type="CheckButton" parent="TabContainer/Settings/Items/Fullscreen"]
+layout_mode = 2
+script = ExtResource("11_64vls")
+
+[node name="Info" type="Control" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Info"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 0.05
+anchor_right = 0.98
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TabContainer/Info/VBoxContainer"]
+layout_mode = 2
+text = "关于"
+label_settings = SubResource("LabelSettings_te371")
+
+[node name="Version" type="HBoxContainer" parent="TabContainer/Info/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Info/VBoxContainer/Version"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "软件版本"
+label_settings = ExtResource("4_mq77w")
+
+[node name="Control" type="Control" parent="TabContainer/Info/VBoxContainer/Version"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Ver" type="Label" parent="TabContainer/Info/VBoxContainer/Version"]
+layout_mode = 2
+label_settings = ExtResource("4_mq77w")
+script = ExtResource("10_0p8m1")
+
+[node name="Others" type="HBoxContainer" parent="TabContainer/Info/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Info/VBoxContainer/Others"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "说明"
+label_settings = ExtResource("4_mq77w")
+
+[node name="Control" type="Control" parent="TabContainer/Info/VBoxContainer/Others"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="about" type="Label" parent="TabContainer/Info/VBoxContainer/Others"]
+layout_mode = 2
+text = "作者：cfrank114
+
+bug反馈：https://github.com/cfrank114/RandomStuPicker/issues"
+label_settings = ExtResource("4_mq77w")
+
+[node name="ReturnButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.95
+anchor_right = 0.05
+anchor_bottom = 0.95
+offset_top = -100.0
+offset_right = 100.0
+grow_vertical = 0
+texture_normal = ExtResource("5_3x8nv")
+stretch_mode = 0
+script = ExtResource("8_msj54")
+
+[connection signal="item_selected" from="TabContainer/Settings/Items/Res/ItemList" to="TabContainer/Settings/Items/Res" method="_on_item_list_item_selected"]

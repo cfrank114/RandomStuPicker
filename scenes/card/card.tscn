@@ -1,0 +1,218 @@
+[gd_scene load_steps=24 format=3 uid="uid://cyevv3513c0k8"]
+
+[ext_resource type="Texture2D" uid="uid://c0b13nvkqsh8y" path="res://assets/cards.png" id="1_nqi22"]
+[ext_resource type="Script" path="res://scenes/card/card.gd" id="1_usp27"]
+[ext_resource type="Material" uid="uid://btpdlpt8tuesk" path="res://scenes/card/number.tres" id="2_rnfjb"]
+[ext_resource type="Shader" path="res://scenes/card/number.gdshader" id="3_06563"]
+[ext_resource type="Texture2D" uid="uid://kk3ye5boawad" path="res://assets/numbers.png" id="3_b4nfw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65gnn"]
+atlas = ExtResource("1_nqi22")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x4n8"]
+atlas = ExtResource("1_nqi22")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va7wn"]
+atlas = ExtResource("1_nqi22")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvemm"]
+atlas = ExtResource("1_nqi22")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syey1"]
+atlas = ExtResource("1_nqi22")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m3asa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65gnn")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x4n8")
+}],
+"loop": true,
+"name": &"gold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va7wn")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvemm")
+}],
+"loop": true,
+"name": &"pink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syey1")
+}],
+"loop": true,
+"name": &"purple",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n783q"]
+resource_local_to_scene = true
+shader = ExtResource("3_06563")
+shader_parameter/color = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnwk0"]
+atlas = ExtResource("3_b4nfw")
+region = Rect2(0, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48aom"]
+atlas = ExtResource("3_b4nfw")
+region = Rect2(6, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsukb"]
+atlas = ExtResource("3_b4nfw")
+region = Rect2(12, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4101o"]
+atlas = ExtResource("3_b4nfw")
+region = Rect2(18, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4g3f"]
+atlas = ExtResource("3_b4nfw")
+region = Rect2(24, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i33vj"]
+atlas = ExtResource("3_b4nfw")
+region = Rect2(0, 8, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj1ql"]
+atlas = ExtResource("3_b4nfw")
+region = Rect2(6, 8, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqg8n"]
+atlas = ExtResource("3_b4nfw")
+region = Rect2(12, 8, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3q7n"]
+atlas = ExtResource("3_b4nfw")
+region = Rect2(18, 8, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jgws"]
+atlas = ExtResource("3_b4nfw")
+region = Rect2(24, 8, 6, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fpis3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnwk0")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48aom")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsukb")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4101o")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4g3f")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i33vj")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj1ql")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqg8n")
+}],
+"loop": true,
+"name": &"7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3q7n")
+}],
+"loop": true,
+"name": &"8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jgws")
+}],
+"loop": true,
+"name": &"9",
+"speed": 5.0
+}]
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_usp27")
+
+[node name="card" type="AnimatedSprite2D" parent="."]
+scale = Vector2(100, 100)
+sprite_frames = SubResource("SpriteFrames_m3asa")
+animation = &"normal"
+
+[node name="number_a" type="AnimatedSprite2D" parent="card"]
+material = SubResource("ShaderMaterial_n783q")
+position = Vector2(-2.5, -3)
+sprite_frames = SubResource("SpriteFrames_fpis3")
+animation = &"9"
+
+[node name="number_b" type="AnimatedSprite2D" parent="card"]
+material = ExtResource("2_rnfjb")
+position = Vector2(3.5, -3)
+sprite_frames = SubResource("SpriteFrames_fpis3")
+animation = &"9"
