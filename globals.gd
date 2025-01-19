@@ -39,3 +39,14 @@ func _ready():
 		get_window().size=res[Globals.data["data"]["settings"]["res"]]
 		get_window().position=Vector2(120,100)
 	
+func save():
+	var json = JSON.new()
+	var temp_data = json.stringify(Globals.data)
+	data_file.resize(0)
+	data_file.store_string(temp_data)
+	data_file.close()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		save()
+	

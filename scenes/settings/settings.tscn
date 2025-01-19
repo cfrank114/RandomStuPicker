@@ -59,11 +59,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_jtk6j")
-current_tab = 1
+current_tab = 0
 script = ExtResource("1_6pmiw")
 
 [node name="Settings" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -147,7 +146,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="ItemList" type="ItemList" parent="TabContainer/Settings/Items/Res"]
-custom_minimum_size = Vector2(100, 80)
+custom_minimum_size = Vector2(200, 80)
 layout_mode = 2
 script = ExtResource("4_oftwq")
 
@@ -167,6 +166,7 @@ layout_mode = 2
 script = ExtResource("11_64vls")
 
 [node name="Info" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
