@@ -26,5 +26,5 @@ func _on_check_box_toggled(state,index):
 
 
 func _ready():
-	for i in range(Globals.data["data"]["settings"]["range"][0],Globals.data["data"]["settings"]["range"][1]):
+	for i in range(Globals.data["data"]["settings"]["range"][0],Globals.data["data"]["settings"]["range"][1]+1):
 		add_option(str(i)+"号",Globals.data["data"]["settings"]["except"].has(float(i)))
