@@ -31,6 +31,7 @@ var card_number = []
 var card_type = []
 
 var need_shuffle = true
+var settings_changed = false
 
 func _ready():
 	if data["data"]["settings"]["fullscreen"]:

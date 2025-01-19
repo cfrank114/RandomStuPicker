@@ -22,6 +22,7 @@ func _on_check_box_toggled(state,index):
 	else:
 		Globals.data["data"]["settings"]["except"].pop_at(Globals.data["data"]["settings"]["except"].find(index+1))
 	Globals.data["data"]["settings"]["except"].sort()
+	Globals.settings_changed=true
 
 
 func _ready():
