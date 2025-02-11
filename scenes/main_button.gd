@@ -31,7 +31,7 @@ func _pressed() -> void:
 	if(Globals.ind >= Globals.total):
 		Globals.need_shuffle=true
 		if(Globals.data["data"]["settings"]["auto_erase_history"]):
-			while Globals.history.size>Globals.total:
+			while Globals.history.size()>Globals.total:
 				Globals.history.pop_front()
 		Globals.ind=0
 	
