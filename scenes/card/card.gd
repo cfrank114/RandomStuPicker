@@ -5,21 +5,36 @@ extends Node2D
 @onready var card = $card
 @onready var number_colors = Globals.number_color
 @export var finished=false
+var _type=""
 
 const speed = 5.0
 
-func set_pos(pos:Vector2):
-	self.scale = Vector2(0.01,0.01)
+func set_pos(pos:Vector2,allow_cards=true):
 	self.position = pos
+	if allow_cards:
+		self.scale = Vector2(0.01,0.01)
+	else: 
+		self.scale = Globals.dest_scale
+		if _type=="gold":
+			self.scale=1.02*Globals.dest_scale
+			self.position.y+=10
 	
-func set_card(number:int,type:String):
-	number_a.material.set_shader_parameter("color",number_colors[type]/255)
-	number_b.material.set_shader_parameter("color",number_colors[type]/255)
+	
+func set_card(number:int,type:String,allow_cards=true):
+	if(allow_cards):
+		number_a.material.set_shader_parameter("color",number_colors[type]/255)
+		number_b.material.set_shader_parameter("color",number_colors[type]/255)
+		card.play(type)
+	else:
+		number_a.material.set_shader_parameter("color",Vector4(0,0,0,1))
+		number_b.material.set_shader_parameter("color",Vector4(0,0,0,1))
+		card.play("none")
 	var num_a_value = number/10
 	var num_b_value = number%10
 	number_a.play(str(num_a_value))
 	number_b.play(str(num_b_value))
-	card.play(type)
+	_type = type
+	
 
 func _ready():
 	set_card(0,"normal")

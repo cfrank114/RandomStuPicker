@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjakb5fqhtj3p"]
+[gd_scene load_steps=24 format=3 uid="uid://bjakb5fqhtj3p"]
 
-[ext_resource type="Script" path="res://scenes/settings/tab_container.gd" id="1_6pmiw"]
+[ext_resource type="Script" path="res://scenes/settings/settings.gd" id="1_t0d3t"]
 [ext_resource type="Shader" path="res://scenes/background.gdshader" id="1_y0nas"]
 [ext_resource type="Texture2D" uid="uid://cyp4mpqgg8t7m" path="res://assets/background.jpeg" id="2_ppmro"]
 [ext_resource type="Script" path="res://scenes/settings/from.gd" id="2_qee63"]
@@ -9,12 +9,16 @@
 [ext_resource type="Script" path="res://scenes/settings/item_list.gd" id="4_oftwq"]
 [ext_resource type="Texture2D" uid="uid://b2s38q8uvegif" path="res://assets/back.png" id="5_3x8nv"]
 [ext_resource type="Theme" uid="uid://8qy5swscipeg" path="res://scenes/settings/normal_theme.tres" id="5_jtk6j"]
+[ext_resource type="Script" path="res://scenes/settings/show_history.gd" id="5_qtppv"]
 [ext_resource type="Script" path="res://scenes/settings/v_box_container.gd" id="6_sikj4"]
 [ext_resource type="FontFile" uid="uid://b3568hqqk8s5n" path="res://assets/font.ttf" id="7_vtash"]
 [ext_resource type="Script" path="res://scenes/settings/res.gd" id="8_clatf"]
 [ext_resource type="Script" path="res://scenes/settings/return_button.gd" id="8_msj54"]
-[ext_resource type="Script" path="res://scenes/settings/ver.gd" id="10_0p8m1"]
 [ext_resource type="Script" path="res://scenes/settings/fullscreen.gd" id="11_64vls"]
+[ext_resource type="Script" path="res://scenes/settings/trmenu.gd" id="11_gxqj1"]
+[ext_resource type="Script" path="res://scenes/settings/tabs_at_bottom.gd" id="12_842ru"]
+[ext_resource type="Script" path="res://scenes/settings/showcards.gd" id="12_wdr26"]
+[ext_resource type="Script" path="res://scenes/settings/history.gd" id="14_thihq"]
 [ext_resource type="Script" path="res://scenes/settings/label.gd" id="16_itn8q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b688o"]
@@ -39,6 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_t0d3t")
 
 [node name="Backgorund" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_b688o")
@@ -61,119 +66,223 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("5_jtk6j")
+tab_alignment = 1
 current_tab = 0
-script = ExtResource("1_6pmiw")
 
-[node name="Settings" type="Control" parent="TabContainer"]
+[node name="Menu_History" type="Control" parent="TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Items" type="VBoxContainer" parent="TabContainer/Settings"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Menu_History"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.015
-anchor_top = 0.015
-anchor_right = 0.985
-anchor_bottom = 0.985
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="TabContainer/Settings/Items"]
+[node name="Histories" type="RichTextLabel" parent="TabContainer/Menu_History/ScrollContainer"]
 layout_mode = 2
-text = "抽取设置"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("5_qtppv")
+
+[node name="Menu_Settings" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Menu_Settings"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.13
+
+[node name="Items" type="VBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
+layout_mode = 2
+text = "Menu_Settings_PickerSettings"
 label_settings = SubResource("LabelSettings_yf7r2")
 
-[node name="Range" type="HBoxContainer" parent="TabContainer/Settings/Items"]
+[node name="Range" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TabContainer/Settings/Items/Range"]
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Range"]
 layout_mode = 2
-text = "范围"
+text = "Menu_Settings_Range"
 
-[node name="Control" type="Control" parent="TabContainer/Settings/Items/Range"]
+[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Range"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="From" type="SpinBox" parent="TabContainer/Settings/Items/Range"]
+[node name="From" type="SpinBox" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Range"]
 layout_mode = 2
 theme = ExtResource("5_jtk6j")
 rounded = true
 script = ExtResource("2_qee63")
 
-[node name="To" type="SpinBox" parent="TabContainer/Settings/Items/Range"]
+[node name="To" type="SpinBox" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Range"]
 layout_mode = 2
 theme = ExtResource("5_jtk6j")
 script = ExtResource("3_vvmdj")
 
-[node name="Except" type="HBoxContainer" parent="TabContainer/Settings/Items"]
+[node name="Except" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="TabContainer/Settings/Items/Except"]
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Except"]
 layout_mode = 2
 size_flags_vertical = 0
-text = "排除
-"
+text = "Menu_Settings_Except"
 
-[node name="Control" type="Control" parent="TabContainer/Settings/Items/Except"]
+[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Except"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Settings/Items/Except"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Except"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.13
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/Items/Except/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Except/ScrollContainer"]
 layout_mode = 2
 theme = ExtResource("5_jtk6j")
 script = ExtResource("6_sikj4")
 
-[node name="Label2" type="Label" parent="TabContainer/Settings/Items"]
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
 layout_mode = 2
-text = "图像"
+size_flags_stretch_ratio = 0.0
+
+[node name="Label2" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
+layout_mode = 2
+text = "Menu_Settings_Graphics"
 label_settings = SubResource("LabelSettings_yf7r2")
 
-[node name="Res" type="HBoxContainer" parent="TabContainer/Settings/Items"]
+[node name="Res" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
 layout_mode = 2
 script = ExtResource("8_clatf")
 
-[node name="Label" type="Label" parent="TabContainer/Settings/Items/Res"]
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Res"]
 layout_mode = 2
-text = "分辨率"
+text = "Menu_Settings_Resolution"
 
-[node name="Control" type="Control" parent="TabContainer/Settings/Items/Res"]
+[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Res"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ItemList" type="ItemList" parent="TabContainer/Settings/Items/Res"]
-custom_minimum_size = Vector2(200, 80)
+[node name="ItemList" type="ItemList" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Res"]
+custom_minimum_size = Vector2(200, 120)
 layout_mode = 2
 script = ExtResource("4_oftwq")
 
-[node name="Fullscreen" type="HBoxContainer" parent="TabContainer/Settings/Items"]
+[node name="Fullscreen" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TabContainer/Settings/Items/Fullscreen"]
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Fullscreen"]
 layout_mode = 2
-text = "全屏"
+text = "Menu_Settings_Fullscreen"
 
-[node name="Control" type="Control" parent="TabContainer/Settings/Items/Fullscreen"]
+[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Fullscreen"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Fullscreen" type="CheckButton" parent="TabContainer/Settings/Items/Fullscreen"]
+[node name="TabPos" type="CheckButton" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Fullscreen"]
 layout_mode = 2
 script = ExtResource("11_64vls")
 
-[node name="Info" type="Control" parent="TabContainer"]
+[node name="AllowCards" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/AllowCards"]
+layout_mode = 2
+text = "Menu_Settings_Allow_Cards"
+
+[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/AllowCards"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="allow_cards" type="CheckButton" parent="TabContainer/Menu_Settings/ScrollContainer/Items/AllowCards"]
+layout_mode = 2
+script = ExtResource("12_wdr26")
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="Label3" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
+layout_mode = 2
+text = "Menu_Settings_Others"
+label_settings = SubResource("LabelSettings_yf7r2")
+
+[node name="Translations" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Translations"]
+layout_mode = 2
+text = "Menu_Settings_Translations"
+
+[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Translations"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Translations"]
+layout_mode = 2
+script = ExtResource("11_gxqj1")
+
+[node name="Tabs" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Tabs"]
+layout_mode = 2
+text = "Menu_Settings_IsTabAtBottom"
+
+[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Tabs"]
+layout_mode = 2
+script = ExtResource("12_842ru")
+
+[node name="History" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/History"]
+layout_mode = 2
+text = "Menu_Settings_AutoEraseHistory"
+
+[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/History"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="History" type="CheckButton" parent="TabContainer/Menu_Settings/ScrollContainer/Items/History"]
+layout_mode = 2
+script = ExtResource("14_thihq")
+
+[node name="Menu_Info" type="Control" parent="TabContainer"]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 1
+metadata/_tab_index = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Info"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Menu_Info"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.03
@@ -183,47 +292,45 @@ anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="TabContainer/Info/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Menu_Info/VBoxContainer"]
 layout_mode = 2
-text = "关于"
+text = "Menu_Info_Info"
 label_settings = SubResource("LabelSettings_te371")
 
-[node name="Version" type="HBoxContainer" parent="TabContainer/Info/VBoxContainer"]
+[node name="Version" type="HBoxContainer" parent="TabContainer/Menu_Info/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TabContainer/Info/VBoxContainer/Version"]
+[node name="Label" type="Label" parent="TabContainer/Menu_Info/VBoxContainer/Version"]
 layout_mode = 2
 size_flags_vertical = 1
-text = "软件版本"
+text = "Menu_Info_Ver"
 label_settings = ExtResource("4_mq77w")
 
-[node name="Control" type="Control" parent="TabContainer/Info/VBoxContainer/Version"]
+[node name="Control" type="Control" parent="TabContainer/Menu_Info/VBoxContainer/Version"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Ver" type="Label" parent="TabContainer/Info/VBoxContainer/Version"]
+[node name="Ver" type="Label" parent="TabContainer/Menu_Info/VBoxContainer/Version"]
 layout_mode = 2
 label_settings = ExtResource("4_mq77w")
-script = ExtResource("10_0p8m1")
 
-[node name="Others" type="HBoxContainer" parent="TabContainer/Info/VBoxContainer"]
+[node name="Others" type="HBoxContainer" parent="TabContainer/Menu_Info/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TabContainer/Info/VBoxContainer/Others"]
+[node name="Label" type="Label" parent="TabContainer/Menu_Info/VBoxContainer/Others"]
 layout_mode = 2
 size_flags_vertical = 1
-text = "说明"
+text = "Menu_Info_Description"
 label_settings = ExtResource("4_mq77w")
 
-[node name="Control" type="Control" parent="TabContainer/Info/VBoxContainer/Others"]
+[node name="Control" type="Control" parent="TabContainer/Menu_Info/VBoxContainer/Others"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="about" type="Label" parent="TabContainer/Info/VBoxContainer/Others"]
+[node name="about" type="Label" parent="TabContainer/Menu_Info/VBoxContainer/Others"]
 layout_mode = 2
-text = "作者：cfrank114
-
-bug反馈：https://github.com/cfrank114/RandomStuPicker/issues"
+text = "Menu_Info_Description_Author :cfrank114
+Menu_Info_Description_BugReport :https://github.com/cfrank114/RandomStuPicker/issues"
 label_settings = ExtResource("4_mq77w")
 
 [node name="ReturnButton" type="TextureButton" parent="."]
@@ -254,4 +361,5 @@ grow_vertical = 0
 label_settings = ExtResource("4_mq77w")
 script = ExtResource("16_itn8q")
 
-[connection signal="item_selected" from="TabContainer/Settings/Items/Res/ItemList" to="TabContainer/Settings/Items/Res" method="_on_item_list_item_selected"]
+[connection signal="item_selected" from="TabContainer/Menu_Settings/ScrollContainer/Items/Res/ItemList" to="TabContainer/Menu_Settings/ScrollContainer/Items/Res" method="_on_item_list_item_selected"]
+[connection signal="item_selected" from="TabContainer/Menu_Settings/ScrollContainer/Items/Translations/OptionButton" to="TabContainer/Menu_Settings/ScrollContainer/Items/Translations/OptionButton" method="_on_item_selected"]

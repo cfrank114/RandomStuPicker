@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cyevv3513c0k8"]
+[gd_scene load_steps=25 format=3 uid="uid://cyevv3513c0k8"]
 
 [ext_resource type="Texture2D" uid="uid://c0b13nvkqsh8y" path="res://assets/cards.png" id="1_nqi22"]
 [ext_resource type="Script" path="res://scenes/card/card.gd" id="1_usp27"]
@@ -13,6 +13,10 @@ region = Rect2(48, 0, 16, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0x4n8"]
 atlas = ExtResource("1_nqi22")
 region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p7gq"]
+atlas = ExtResource("1_nqi22")
+region = Rect2(48, 72, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_va7wn"]
 atlas = ExtResource("1_nqi22")
@@ -42,6 +46,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"gold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p7gq")
+}],
+"loop": true,
+"name": &"none",
 "speed": 5.0
 }, {
 "frames": [{
@@ -203,7 +215,7 @@ script = ExtResource("1_usp27")
 [node name="card" type="AnimatedSprite2D" parent="."]
 scale = Vector2(100, 100)
 sprite_frames = SubResource("SpriteFrames_m3asa")
-animation = &"normal"
+animation = &"none"
 
 [node name="number_a" type="AnimatedSprite2D" parent="card"]
 material = SubResource("ShaderMaterial_n783q")

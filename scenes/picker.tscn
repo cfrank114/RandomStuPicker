@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scenes/main_button.gd" id="5_b0au0"]
 [ext_resource type="Texture2D" uid="uid://bdts1pkh0abau" path="res://assets/close.png" id="7_mhpgj"]
 [ext_resource type="Script" path="res://scenes/quit_button.gd" id="8_n634a"]
-[ext_resource type="Texture2D" uid="uid://bm8dqjfa1li74" path="res://assets/settings.png" id="9_4vnfi"]
+[ext_resource type="Texture2D" uid="uid://du0xw4w6fu5w2" path="res://assets/more.png" id="9_v5r5t"]
 [ext_resource type="Script" path="res://scenes/settings_button.gd" id="10_85xoc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q00xh"]
@@ -83,6 +83,6 @@ offset_left = -100.0
 offset_top = -100.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("9_4vnfi")
+texture_normal = ExtResource("9_v5r5t")
 stretch_mode = 0
 script = ExtResource("10_85xoc")

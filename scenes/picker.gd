@@ -77,8 +77,6 @@ func random_shuffle():
 		ct[ni[i]-2]="gold"
 	if Globals.data["data"]["settings"]["allow_cp"] and Globals.total>0:
 		var cp:Dictionary = Globals.data["data"]["constants"]["cp"]
-		var skip = false
-		var cped=[]
 		for i in range(Globals.total-2):
 			if str(cn[i]) in cp.keys():
 				if (float(cn[i+1])in cp[str(cn[i])]):

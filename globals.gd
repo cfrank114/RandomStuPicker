@@ -1,6 +1,8 @@
 extends Node
 
-const app_ver = 1.0
+const app_ver = "1.1"
+
+const data_template = {"data":{"constants":{"cp":{"10":[43,48],"15":[39],"17":[48],"19":[37],"22":[45],"33":[38,44],"4":[46],"7":[40,49]},"special":[12]},"settings":{"allow_cp":true,"blurness":0,"except":[6,6,32],"fullscreen":true,"range":[1,49],"res":"1200x720"}},"version":"1.1"}
 
 const number_color={
 	"normal":Vector4(143,143,143,255),
@@ -16,6 +18,8 @@ const res = {
 	"960x540":Vector2(960,540)
 }
 
+var lang = ["en","zh"]
+
 var dest=Vector2(0,0)
 var dest_scale = Vector2(0.3,0.3)
 
@@ -26,14 +30,33 @@ var data_file = FileAccess.open(data_file_path,FileAccess.READ_WRITE)
 
 @export var data:Dictionary = JSON.parse_string(data_file.get_as_text())
 
+var data_loaded = false
+
 var total = data["data"]["settings"]["range"][1]-data["data"]["settings"]["range"][0]+1-len(data["data"]["settings"]["except"])
 var card_number = []
 var card_type = []
 
 var need_shuffle = true
 var settings_changed = false
+var ind = 0
+
+var history = []
 
 func _ready():
+	if FileAccess.file_exists(data_file_path):
+		data_file = FileAccess.open(data_file_path,FileAccess.READ_WRITE)
+		data = JSON.parse_string(data_file.get_as_text())
+		total = data["data"]["settings"]["range"][1]-data["data"]["settings"]["range"][0]+1-len(data["data"]["settings"]["except"])
+	else:
+		data_file = FileAccess.open(data_file_path,FileAccess.WRITE)
+		var temp_data = JSON.stringify(data_template)
+		data_file.resize(0)
+		data_file.store_string(temp_data)
+		data_file.close()
+		data_file = FileAccess.open(data_file_path,FileAccess.READ_WRITE)
+		data = data_template
+		total = data["data"]["settings"]["range"][1]-data["data"]["settings"]["range"][0]+1-len(data["data"]["settings"]["except"])
+	TranslationServer.set_locale(data["data"]["settings"]["lang"])
 	if data["data"]["settings"]["fullscreen"]:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
