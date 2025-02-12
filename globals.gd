@@ -2,7 +2,7 @@ extends Node
 
 const app_ver = "1.1"
 
-const data_template = {"data":{"constants":{"cp":{"10":[43,48],"15":[39],"17":[48],"19":[37],"22":[45],"33":[38,44],"4":[46],"7":[40,49]},"special":[12]},"settings":{"allow_cp":true,"blurness":0,"except":[6,6,32],"fullscreen":true,"range":[1,49],"res":"1200x720"}},"version":"1.1"}
+const data_template = {"data":{"constants":{"cp":{"10":[43,48],"15":[39],"17":[48],"19":[37],"22":[45],"33":[38,44],"4":[46],"7":[40,49]},"special":[12]},"settings":{"allow_cards":false,"allow_cp":true,"auto_erase_history":true,"except":[6,32,42],"fullscreen":true,"lang":"en","range":[1,49],"res":"1920x1080","tab_at_bottom":false}},"version":"1.1"}
 
 const number_color={
 	"normal":Vector4(143,143,143,255),
