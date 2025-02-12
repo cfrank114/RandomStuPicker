@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="随机选人"
+config/name="RandomStuPicker"
 config/name_localized={
 "zh_CN": "随机选人"
 }
@@ -35,7 +35,7 @@ enabled=PackedStringArray()
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://locales/zh_CN.zh.translation", "res://locales/en_US.en.translation")
+locale/translations=PackedStringArray("res://locales/zh_CN.zh.translation", "res://locales/en_US.en.translation", "res://locales/ja_JP.ja.translation", "res://locales/de_DE.de.translation")
 locale/test="en_US"
 locale/fallback="en_US"
 

@@ -18,7 +18,7 @@ const res = {
 	"960x540":Vector2(960,540)
 }
 
-var lang = ["en","zh"]
+var lang = ["de","en","ja","zh"]
 
 var dest=Vector2(0,0)
 var dest_scale = Vector2(0.3,0.3)

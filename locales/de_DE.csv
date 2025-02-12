@@ -1,0 +1,29 @@
+id,de
+
+Menu_History,Geschichte
+Menu_Settings,Einstellungen
+Menu_Info,Über
+
+Menu_History_None,Kein Verlauf vorhanden
+
+Menu_Settings_PickerSettings,Extraktionseinstellungen
+Menu_Settings_Range,Bereich
+Menu_Settings_Except,Ausschlüsse
+Menu_Settings_Graphics,Bilder
+Menu_Settings_Resolution,Auflösung
+Menu_Settings_Fullscreen,Vollbild
+Menu_Settings_Allow_Cards,Karten verwenden
+Menu_Settings_Others,Verschiedenes
+Menu_Settings_Translations,Übersetzung
+Menu_Settings_IsTabAtBottom,Einstellungsleiste unten
+Menu_Settings_AutoEraseHistory,Verlauf automatisch leeren
+
+Menu_Info_Info,Über
+Menu_Info_Ver,Version
+Menu_Info_Ver_Software,Softwareversion
+Menu_Info_Ver_Datapack,Datenpaketversion
+Menu_Info_Description,Beschreibung
+Menu_Info_Description_Author,Autor
+Menu_Info_Description_BugReport,Fehlerbericht
+
+Menu_Settings_Changed,Änderungen werden nach dem Neustart der Software wirksam.
