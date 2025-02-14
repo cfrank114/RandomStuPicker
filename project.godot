@@ -16,8 +16,9 @@ config/name_localized={
 }
 config/version="1.1.1"
 run/main_scene="res://scenes/picker.tscn"
-config/custom_user_dir_name="RandomStuPicker"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/image="res://assets/background.png"
 config/icon="res://assets/icon.png"
 
 [autoload]
