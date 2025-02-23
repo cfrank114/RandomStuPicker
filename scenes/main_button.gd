@@ -16,6 +16,7 @@ func _process(delta):
 
 func _pressed() -> void:
 	if not Globals.need_shuffle:
+		print("Creating new card at "+str(self.position+self.size/2))
 		var c = card.instantiate()
 		get_tree().root.add_child(c)
 		c.set_card(Globals.card_number[Globals.ind],Globals.card_type[Globals.ind],Globals.data["data"]["settings"]["allow_cards"])
@@ -29,6 +30,7 @@ func _pressed() -> void:
 		Globals.history.append(Globals.card_number[Globals.ind])
 		Globals.ind+=1
 	if(Globals.ind >= Globals.total):
+		print("Need reshuffling")
 		Globals.need_shuffle=true
 		if(Globals.data["data"]["settings"]["auto_erase_history"]):
 			while Globals.history.size()>Globals.total:

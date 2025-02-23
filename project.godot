@@ -14,7 +14,7 @@ config/name="RandomStuPicker"
 config/name_localized={
 "zh_CN": "随机选人"
 }
-config/version="1.1.1"
+config/version="1.2"
 run/main_scene="res://scenes/picker.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.3", "GL Compatibility")

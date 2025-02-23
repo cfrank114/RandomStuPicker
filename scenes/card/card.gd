@@ -20,7 +20,8 @@ func set_pos(pos:Vector2,allow_cards=true):
 			self.position.y+=10
 	
 	
-func set_card(number:int,type:String,allow_cards=true):
+func set_card(number:int,type:String,allow_log=true,allow_cards=true):
+	if allow_log:print("Setting card:"+str(number)+" with type "+type)
 	if(allow_cards):
 		number_a.material.set_shader_parameter("color",number_colors[type]/255)
 		number_b.material.set_shader_parameter("color",number_colors[type]/255)
@@ -37,7 +38,7 @@ func set_card(number:int,type:String,allow_cards=true):
 	
 
 func _ready():
-	set_card(0,"normal")
+	set_card(0,"normal",false)
 
 func _process(delta):
 	if(abs(self.position.y-Globals.dest.y)<1 and abs(self.position.x-Globals.dest.x)<1):

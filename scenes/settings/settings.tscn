@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bjakb5fqhtj3p"]
+[gd_scene load_steps=25 format=3 uid="uid://bjakb5fqhtj3p"]
 
 [ext_resource type="Script" path="res://scenes/settings/settings.gd" id="1_t0d3t"]
 [ext_resource type="Shader" path="res://scenes/background.gdshader" id="1_y0nas"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://scenes/settings/showcards.gd" id="12_wdr26"]
 [ext_resource type="Script" path="res://scenes/settings/history.gd" id="14_thihq"]
 [ext_resource type="Script" path="res://scenes/settings/label.gd" id="16_itn8q"]
+[ext_resource type="Script" path="res://scenes/settings/menuinfolabel.gd" id="17_1lbhy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b688o"]
 shader = ExtResource("1_y0nas")
@@ -70,9 +71,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("5_jtk6j")
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 
 [node name="Menu_History" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -278,7 +280,6 @@ layout_mode = 2
 script = ExtResource("14_thihq")
 
 [node name="Menu_Info" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -296,6 +297,7 @@ grow_vertical = 2
 layout_mode = 2
 text = "Menu_Info_Info"
 label_settings = SubResource("LabelSettings_te371")
+script = ExtResource("17_1lbhy")
 
 [node name="Version" type="HBoxContainer" parent="TabContainer/Menu_Info/VBoxContainer"]
 layout_mode = 2

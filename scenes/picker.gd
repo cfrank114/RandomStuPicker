@@ -15,7 +15,8 @@ func order(arr:Array,ind:Array):
 		ind[arr[i]]=i
 	
 func random_shuffle():
-	print("shuffle")
+	print("Card Shuffling")
+	print("Shuffling Initiate stage")
 	
 	var _range = Globals.data["data"]["settings"]["range"]
 	var _except = Globals.data["data"]["settings"]["except"]
@@ -28,15 +29,14 @@ func random_shuffle():
 	var ct = []						# card_type in function
 	var remain = []					# I don't know
 	
+	print("Shuffling first randomization stage")
 	#region Shuffle cards
 	for i in range(_range[0],_range[1]+1):
 		if not(float(i) in _except):
 			cn.append(i)
 			ct.append("normal")
 	cn.shuffle()
-	#endregion
 	
-	#region Shuffle card type
 	remain=cn.duplicate()
 	remain.shuffle()
 	order(cn,ni)
@@ -46,6 +46,8 @@ func random_shuffle():
 				ct[ni[remain[i]]]=card_type[j+1]
 				break
 	#endregion
+	
+	print("Shuffling second randomization(specialized paring) stage")
 	
 	if Globals.data["data"]["settings"]["allow_cp"] and Globals.total>0:
 		var cp:Dictionary = Globals.data["data"]["constants"]["cp"]
@@ -59,7 +61,6 @@ func random_shuffle():
 				var cpid = cp[str(i)].pick_random()
 				if(ni[i]+1<Globals.total and ni[i]>1 and cpid not in cped and cn[ni[i]+1] not in cped):
 					swap_with_ind(cn,ni,cpid,cn[ni[i]+1])
-					print(i,cpid)
 					#if(cn[ni[i]+1]!=cn[ni[cpid]] or ni[i]+1!=ni[cpid]):
 						#order(cn,ni)
 						#skip = true
@@ -68,11 +69,18 @@ func random_shuffle():
 					cped.append(i)
 					skip = true
 		
-	
+	print("Shuffling third randomization(specialized proccessing) stage")
 	if float(cn[0]) in Globals.data["data"]["constants"]["special"]:
 		var tmp = cn[2]
 		cn[2]=cn[0]
 		cn[0]=tmp
+	if float(cn[1]) in Globals.data["data"]["constants"]["special"]:
+		var tmp = cn[2]
+		cn[2]=cn[1]
+		cn[1]=tmp
+	
+	print("Shuffling Card type randomization stage")
+	
 	for i in Globals.data["data"]["constants"]["special"]:
 		ct[ni[i]-2]="gold"
 	if Globals.data["data"]["settings"]["allow_cp"] and Globals.total>0:
@@ -82,8 +90,8 @@ func random_shuffle():
 				if (float(cn[i+1])in cp[str(cn[i])]):
 					ct[i]="pink"
 					ct[i+1]="pink"
-				
-			
+	
+	print("Card shuffled")				
 	Globals.card_number=cn
 	Globals.card_type = ct
 
