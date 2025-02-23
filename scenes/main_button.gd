@@ -19,7 +19,7 @@ func _pressed() -> void:
 		print("Creating new card at "+str(self.position+self.size/2))
 		var c = card.instantiate()
 		get_tree().root.add_child(c)
-		c.set_card(Globals.card_number[Globals.ind],Globals.card_type[Globals.ind],Globals.data["data"]["settings"]["allow_cards"])
+		c.set_card(Globals.card_number[Globals.ind],Globals.card_type[Globals.ind],true,Globals.data["data"]["settings"]["allow_cards"])
 		if(Globals.data["data"]["settings"]["allow_cards"]):
 			c.set_pos(self.position+self.size/2)
 		else:
