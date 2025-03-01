@@ -1,6 +1,6 @@
 extends Control
 const card_type=["gold","purple","blue","normal"]
-@onready var type_num = [Globals.total*0.08,Globals.total*0.25]
+@onready var type_num = [Globals.total*0.04,Globals.total*0.15]
 func swap_with_ind(arr:Array,ind:Array,ida:int,idb:int):
 	var swap_location_a = ind[ida]
 	var swap_location_b = ind[idb]
@@ -54,7 +54,7 @@ func random_shuffle():
 		var skip = false
 		var cped=[]
 		for i in range(Globals.total-1):
-			if(skip or randf()>0.4):
+			if(skip or randf()>Globals.cp_prob):
 				skip = false
 				continue
 			if str(i) in cp.keys():
@@ -70,19 +70,16 @@ func random_shuffle():
 					skip = true
 		
 	print("Shuffling third randomization(specialized proccessing) stage")
-	if float(cn[0]) in Globals.data["data"]["constants"]["special"]:
-		var tmp = cn[2]
-		cn[2]=cn[0]
-		cn[0]=tmp
-	if float(cn[1]) in Globals.data["data"]["constants"]["special"]:
-		var tmp = cn[2]
-		cn[2]=cn[1]
-		cn[1]=tmp
+	for i in range(Globals.step):
+		if float(cn[i]) in Globals.data["data"]["constants"]["special"]:
+			var tmp = cn[Globals.step]
+			cn[Globals.step]=cn[i]
+			cn[i]=tmp
+
 	
 	print("Shuffling Card type randomization stage")
 	
-	for i in Globals.data["data"]["constants"]["special"]:
-		ct[ni[i]-2]="gold"
+	ct[randi_range(0,len(ct)-1)]="gold"
 	if Globals.data["data"]["settings"]["allow_cp"] and Globals.total>0:
 		var cp:Dictionary = Globals.data["data"]["constants"]["cp"]
 		for i in range(Globals.total-2):

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://2xhdas2a0hf0"]
+[gd_scene load_steps=5 format=3 uid="uid://2xhdas2a0hf0"]
 
 [ext_resource type="Script" path="res://scenes/special_scene/validate.gd" id="1_q1qod"]
 [ext_resource type="Script" path="res://scenes/special_scene/returnbutton.gd" id="2_f6lf5"]
-[ext_resource type="Script" path="res://scenes/special_scene/cpbutton.gd" id="2_qpyso"]
+[ext_resource type="Script" path="res://scenes/special_scene/code_edit.gd" id="2_rsjni"]
+[ext_resource type="Script" path="res://scenes/special_scene/OK.gd" id="3_aoe1o"]
 
 [node name="Special" type="Control"]
 layout_mode = 3
@@ -42,9 +43,15 @@ size_flags_vertical = 3
 layout_mode = 2
 text = "Validation success"
 
-[node name="CheckBox" type="CheckBox" parent="Main/VBoxContainer"]
+[node name="CodeEdit" type="CodeEdit" parent="Main/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-script = ExtResource("2_qpyso")
+script = ExtResource("2_rsjni")
+
+[node name="Button2" type="Button" parent="Main/VBoxContainer"]
+layout_mode = 2
+text = "OK"
+script = ExtResource("3_aoe1o")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

@@ -14,7 +14,7 @@ config/name="RandomStuPicker"
 config/name_localized={
 "zh_CN": "随机选人"
 }
-config/version="1.2"
+config/version="1.2.2"
 run/main_scene="res://scenes/picker.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.3", "GL Compatibility")
@@ -35,9 +35,20 @@ window/size/resizable=false
 
 enabled=PackedStringArray()
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://locales/": "teal",
+"res://scenes/": "blue",
+"res://scenes/card/": "orange",
+"res://scenes/settings/": "yellow",
+"res://scenes/special_scene/": "green"
+}
+
 [internationalization]
 
-locale/translations=PackedStringArray("res://locales/zh_CN.zh.translation", "res://locales/en_US.en.translation", "res://locales/ja_JP.ja.translation", "res://locales/de_DE.de.translation")
+locale/translations=PackedStringArray("res://locales/de_DE.de_DE.translation", "res://locales/en_US.en_US.translation", "res://locales/es_ES.es_ES.translation", "res://locales/fr_FR.fr_FR.translation", "res://locales/ja_JP.ja_JP.translation", "res://locales/zh_CN.zh_CN.translation", "res://locales/zh_TW.zh_TW.translation")
 locale/test="en_US"
 locale/fallback="en_US"
 

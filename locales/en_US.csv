@@ -1,4 +1,4 @@
-id,en
+id,en_US
 
 Menu_History,History
 Menu_Settings,Settings
@@ -22,7 +22,7 @@ Menu_Info_Info,Info
 Menu_Info_Ver,Version
 Menu_Info_Ver_Software,Software
 Menu_Info_Ver_Datapack,Datapack
-Menu_Info_Description,Descrpitions
+Menu_Info_Description,Descriptions
 Menu_Info_Description_Author,Author
 Menu_Info_Description_BugReport,Bug Reports
 

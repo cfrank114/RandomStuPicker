@@ -1,7 +1,5 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dp4fvk4xiulpv"]
-
-[ext_resource type="FontFile" uid="uid://b3568hqqk8s5n" path="res://assets/font.ttf" id="1_bhp65"]
+[gd_resource type="LabelSettings" format=3 uid="uid://dp4fvk4xiulpv"]
 
 [resource]
-font = ExtResource("1_bhp65")
+line_spacing = 5.0
 font_size = 24

@@ -11,8 +11,9 @@ const data_template = {
 				"22":[45],
 				"33":[38,44],
 				"4":[46],
-				"7":[40,49]},
-				"special":[12]
+				"7":[40,49]
+				},
+			"special":[12]
 				},
 			"settings":{
 				"allow_cards":true,
@@ -20,7 +21,7 @@ const data_template = {
 				"auto_erase_history":true,
 				"except":[6,32,42],
 				"fullscreen":true,
-				"lang":"en",
+				"lang":"en_US",
 				"range":[1,49],
 				"res":"1920x1080",
 				"tab_at_bottom":false
@@ -45,7 +46,10 @@ const res = {
 	"960x540":Vector2(960,540)
 }
 
-var lang = ["de","en","ja","zh"]
+const step = 2
+const cp_prob=0.3
+
+var lang = TranslationServer.get_loaded_locales()
 
 var dest=Vector2(0,0)
 var dest_scale = Vector2(0.3,0.3)
@@ -91,6 +95,7 @@ func _ready():
 		create()
 	print("Checking data")
 	data = check_and_fix_data(data,data_template)
+	data["version"]=ProjectSettings.get_setting("application/config/version")
 	print("Checked")
 	total = data["data"]["settings"]["range"][1]-data["data"]["settings"]["range"][0]+1-len(data["data"]["settings"]["except"])
 	print("TranslationServer Set:",data["data"]["settings"]["lang"])
@@ -157,7 +162,6 @@ func check_and_fix_data(data: Dictionary, default_values: Dictionary, parent_key
 					type_string(typeof(default_values[key])),
 					type_string(typeof(data[key]))
 				])
-	data["version"]=ProjectSettings.get_setting("application/config/version")
 	return data
 
 

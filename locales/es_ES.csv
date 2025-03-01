@@ -1,0 +1,29 @@
+id,es_ES
+
+Menu_History,Historial
+Menu_Settings,Configuración
+Menu_Info,Información
+
+Menu_History_None,No hay historial aún...
+
+Menu_Settings_PickerSettings,"Ajustes de Selección"
+Menu_Settings_Range,Rango
+Menu_Settings_Except,Excepciones
+Menu_Settings_Graphics,Gráficos
+Menu_Settings_Resolution,Resolución
+Menu_Settings_Fullscreen,Pantalla Completa
+Menu_Settings_Allow_Cards,Permitir Tarjetas
+Menu_Settings_Others,Otras
+Menu_Settings_Translations,Traducciones
+Menu_Settings_IsTabAtBottom,Colocar barra de menú abajo
+Menu_Settings_AutoEraseHistory,Borrar historial automáticamente
+
+Menu_Info_Info,Información
+Menu_Info_Ver,Versión
+Menu_Info_Ver_Software,Software
+Menu_Info_Ver_Datapack,Paquete de datos
+Menu_Info_Description,Descripciones
+Menu_Info_Description_Author,Autor
+Menu_Info_Description_BugReport,Reportar errores
+
+Menu_Settings_Changed,Los cambios se aplicarán tras reiniciar.
