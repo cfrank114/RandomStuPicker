@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://2xhdas2a0hf0"]
 
-[ext_resource type="Script" path="res://scenes/special_scene/validate.gd" id="1_q1qod"]
-[ext_resource type="Script" path="res://scenes/special_scene/returnbutton.gd" id="2_f6lf5"]
-[ext_resource type="Script" path="res://scenes/special_scene/code_edit.gd" id="2_rsjni"]
-[ext_resource type="Script" path="res://scenes/special_scene/OK.gd" id="3_aoe1o"]
+[ext_resource type="Script" uid="uid://ckq86no460wqo" path="res://scenes/special_scene/validate.gd" id="1_q1qod"]
+[ext_resource type="Script" uid="uid://tabfgjfyc3h2" path="res://scenes/special_scene/returnbutton.gd" id="2_f6lf5"]
+[ext_resource type="Script" uid="uid://cyu1wvo3a3yeg" path="res://scenes/special_scene/code_edit.gd" id="2_rsjni"]
+[ext_resource type="Script" uid="uid://bcc5vswseu55p" path="res://scenes/special_scene/OK.gd" id="3_aoe1o"]
 
 [node name="Special" type="Control"]
 layout_mode = 3

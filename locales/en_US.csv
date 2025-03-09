@@ -13,6 +13,7 @@ Menu_Settings_Graphics,Graphics
 Menu_Settings_Resolution,Resolution
 Menu_Settings_Fullscreen,Fullscreen
 Menu_Settings_Allow_Cards,Allow Using Cards
+Menu_Settings_Allow_Glow,Allow Cards Glow
 Menu_Settings_Others,Others
 Menu_Settings_Translations,Translations
 Menu_Settings_IsTabAtBottom,Set Menu Bar at bottom

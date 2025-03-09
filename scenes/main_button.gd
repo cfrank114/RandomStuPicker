@@ -11,14 +11,14 @@ func _process(delta):
 	if len(card_list)>2:
 		var c = card_list[0]
 		if c.finished and card_list[1].finished:
-			get_tree().root.remove_child(c)
+			$"..".remove_child(c)
 			card_list.pop_front()
 
 func _pressed() -> void:
 	if not Globals.need_shuffle:
 		print("Creating new card at "+str(self.position+self.size/2))
 		var c = card.instantiate()
-		get_tree().root.add_child(c)
+		$"..".add_child(c)
 		var need_scaling=false
 		if(Globals.ind<Globals.total-Globals.step):
 			if(float(Globals.card_number[Globals.ind+Globals.step]) in Globals.data["data"]["constants"]["special"]):

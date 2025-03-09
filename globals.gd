@@ -18,6 +18,7 @@ const data_template = {
 			"settings":{
 				"allow_cards":true,
 				"allow_cp":false,
+				"allow_glow_effect":true,
 				"auto_erase_history":true,
 				"except":[6,32,42],
 				"fullscreen":true,
@@ -27,7 +28,7 @@ const data_template = {
 				"tab_at_bottom":false
 				}
 			},
-		"version":"1.2"
+		"version":"1.3-alpha1"
 	}
 
 const uni_pass="cgfirbabnekroiosfh7497sm182938114514"
@@ -38,6 +39,14 @@ const number_color={
 	"purple":Vector4(122,111,238,255),
 	"blue":Vector4(74,194,183,255),
 	"pink":Vector4(255,129,129,255)
+	}
+	
+const glow_color={
+	"normal":Vector4(0,0,0,255),
+	"gold":Vector4(107,80,32,255),
+	"purple":Vector4(83,48,191,255),
+	"blue":Vector4(107,126,149,255),
+	"pink":Vector4(195,63,123,255)
 	}
 	
 const res = {
@@ -72,6 +81,10 @@ var settings_changed = false
 var ind = 0
 
 var history = []
+
+var picker_scene = load("res://scenes/picker.tscn")
+var settings_scene = load("res://scenes/settings/settings.tscn")
+var special_scene = load("res://scenes/special_scene/special.tscn")
 
 func _ready():
 	print("Globals data start loading.")
@@ -108,6 +121,7 @@ func _ready():
 		get_window().position=Vector2(120,100)
 		
 	print("Data initiate complete")
+	print("Entering picker.tscn")
 	
 func create():
 	print("Creating data file.")

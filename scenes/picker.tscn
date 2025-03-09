@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=3 uid="uid://d2ywoof6fdwf0"]
 
-[ext_resource type="Shader" path="res://scenes/background.gdshader" id="1_o6pei"]
-[ext_resource type="Script" path="res://scenes/picker.gd" id="1_w4d43"]
+[ext_resource type="Shader" uid="uid://n2yutwag1eed" path="res://scenes/background.gdshader" id="1_o6pei"]
+[ext_resource type="Script" uid="uid://bpsx2cn8j4476" path="res://scenes/picker.gd" id="1_w4d43"]
 [ext_resource type="Texture2D" uid="uid://cyp4mpqgg8t7m" path="res://assets/background.jpeg" id="2_e6707"]
 [ext_resource type="Texture2D" uid="uid://rx5rlwvn0y2a" path="res://assets/MainButton_normal.png" id="3_noitr"]
 [ext_resource type="Texture2D" uid="uid://df8rkjeo6y0lx" path="res://assets/MainButton_pressed.png" id="4_jyl87"]
-[ext_resource type="Script" path="res://scenes/main_button.gd" id="5_b0au0"]
+[ext_resource type="Script" uid="uid://cxdup15xykarf" path="res://scenes/main_button.gd" id="5_b0au0"]
 [ext_resource type="Texture2D" uid="uid://bdts1pkh0abau" path="res://assets/close.png" id="7_mhpgj"]
-[ext_resource type="Script" path="res://scenes/quit_button.gd" id="8_n634a"]
+[ext_resource type="Script" uid="uid://djkv7qivbnrvu" path="res://scenes/quit_button.gd" id="8_n634a"]
 [ext_resource type="Texture2D" uid="uid://du0xw4w6fu5w2" path="res://assets/more.png" id="9_v5r5t"]
-[ext_resource type="Script" path="res://scenes/settings_button.gd" id="10_85xoc"]
+[ext_resource type="Script" uid="uid://cfidn1rkrq81v" path="res://scenes/settings_button.gd" id="10_85xoc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q00xh"]
 shader = ExtResource("1_o6pei")

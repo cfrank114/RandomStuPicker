@@ -12,7 +12,8 @@ Menu_Settings_Except,はいじょ
 Menu_Settings_Graphics,グラフィック
 Menu_Settings_Resolution,解像度
 Menu_Settings_Fullscreen,フルスクリーン
-Menu_Settings_Allow_Cards,カード使用を許可
+Menu_Settings_Allow_Cards,カードを使用
+Menu_Settings_Allow_Glow,光沢効果
 Menu_Settings_Others,雑項
 Menu_Settings_Translations,翻訳
 Menu_Settings_IsTabAtBottom,設定バーを下に置く

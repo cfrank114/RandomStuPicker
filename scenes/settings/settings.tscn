@@ -1,26 +1,27 @@
-[gd_scene load_steps=25 format=3 uid="uid://bjakb5fqhtj3p"]
+[gd_scene load_steps=26 format=3 uid="uid://bjakb5fqhtj3p"]
 
-[ext_resource type="Script" path="res://scenes/settings/settings.gd" id="1_t0d3t"]
-[ext_resource type="Shader" path="res://scenes/background.gdshader" id="1_y0nas"]
+[ext_resource type="Script" uid="uid://bnwqv1va38mcd" path="res://scenes/settings/settings.gd" id="1_t0d3t"]
+[ext_resource type="Shader" uid="uid://n2yutwag1eed" path="res://scenes/background.gdshader" id="1_y0nas"]
 [ext_resource type="Texture2D" uid="uid://cyp4mpqgg8t7m" path="res://assets/background.jpeg" id="2_ppmro"]
-[ext_resource type="Script" path="res://scenes/settings/from.gd" id="2_qee63"]
-[ext_resource type="Script" path="res://scenes/settings/to.gd" id="3_vvmdj"]
+[ext_resource type="Script" uid="uid://k003s4pdfc86" path="res://scenes/settings/from.gd" id="2_qee63"]
+[ext_resource type="Script" uid="uid://c2ovginhyqes1" path="res://scenes/settings/to.gd" id="3_vvmdj"]
 [ext_resource type="LabelSettings" uid="uid://dp4fvk4xiulpv" path="res://scenes/settings/normal.tres" id="4_mq77w"]
-[ext_resource type="Script" path="res://scenes/settings/item_list.gd" id="4_oftwq"]
+[ext_resource type="Script" uid="uid://upgnaqnpyo8w" path="res://scenes/settings/item_list.gd" id="4_oftwq"]
 [ext_resource type="Texture2D" uid="uid://b2s38q8uvegif" path="res://assets/back.png" id="5_3x8nv"]
 [ext_resource type="Theme" uid="uid://8qy5swscipeg" path="res://scenes/settings/normal_theme.tres" id="5_jtk6j"]
-[ext_resource type="Script" path="res://scenes/settings/show_history.gd" id="5_qtppv"]
-[ext_resource type="Script" path="res://scenes/settings/v_box_container.gd" id="6_sikj4"]
+[ext_resource type="Script" uid="uid://x0fcj17cwed3" path="res://scenes/settings/show_history.gd" id="5_qtppv"]
+[ext_resource type="Script" uid="uid://vkkfo0xh6gl" path="res://scenes/settings/v_box_container.gd" id="6_sikj4"]
 [ext_resource type="FontFile" uid="uid://b3568hqqk8s5n" path="res://assets/font.ttf" id="7_vtash"]
-[ext_resource type="Script" path="res://scenes/settings/res.gd" id="8_clatf"]
-[ext_resource type="Script" path="res://scenes/settings/return_button.gd" id="8_msj54"]
-[ext_resource type="Script" path="res://scenes/settings/fullscreen.gd" id="11_64vls"]
-[ext_resource type="Script" path="res://scenes/settings/trmenu.gd" id="11_gxqj1"]
-[ext_resource type="Script" path="res://scenes/settings/tabs_at_bottom.gd" id="12_842ru"]
-[ext_resource type="Script" path="res://scenes/settings/showcards.gd" id="12_wdr26"]
-[ext_resource type="Script" path="res://scenes/settings/history.gd" id="14_thihq"]
-[ext_resource type="Script" path="res://scenes/settings/label.gd" id="16_itn8q"]
-[ext_resource type="Script" path="res://scenes/settings/menuinfolabel.gd" id="17_1lbhy"]
+[ext_resource type="Script" uid="uid://d34gji3hi5fvg" path="res://scenes/settings/res.gd" id="8_clatf"]
+[ext_resource type="Script" uid="uid://calfomj64qsld" path="res://scenes/settings/return_button.gd" id="8_msj54"]
+[ext_resource type="Script" uid="uid://c5lqiwj4q2lvc" path="res://scenes/settings/fullscreen.gd" id="11_64vls"]
+[ext_resource type="Script" uid="uid://k21gyq4xmcax" path="res://scenes/settings/trmenu.gd" id="11_gxqj1"]
+[ext_resource type="Script" uid="uid://bb0obfihsbhhw" path="res://scenes/settings/tabs_at_bottom.gd" id="12_842ru"]
+[ext_resource type="Script" uid="uid://b3lfntmdhtehs" path="res://scenes/settings/allow_glow.gd" id="12_hhbxg"]
+[ext_resource type="Script" uid="uid://py7fjdp1th1o" path="res://scenes/settings/showcards.gd" id="12_wdr26"]
+[ext_resource type="Script" uid="uid://c6q0qxj8l24c6" path="res://scenes/settings/history.gd" id="14_thihq"]
+[ext_resource type="Script" uid="uid://3nlc1n0x1cyp" path="res://scenes/settings/label.gd" id="16_itn8q"]
+[ext_resource type="Script" uid="uid://c0chlscsknwjm" path="res://scenes/settings/menuinfolabel.gd" id="17_1lbhy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b688o"]
 shader = ExtResource("1_y0nas")
@@ -71,7 +72,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("5_jtk6j")
 tab_alignment = 1
-current_tab = 2
+current_tab = 1
 
 [node name="Menu_History" type="Control" parent="TabContainer"]
 visible = false
@@ -95,7 +96,6 @@ size_flags_vertical = 3
 script = ExtResource("5_qtppv")
 
 [node name="Menu_Settings" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -210,6 +210,21 @@ size_flags_horizontal = 3
 layout_mode = 2
 script = ExtResource("11_64vls")
 
+[node name="AllowGlow" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/AllowGlow"]
+layout_mode = 2
+text = "Menu_Settings_Allow_Glow"
+
+[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/AllowGlow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="allow_glow" type="CheckButton" parent="TabContainer/Menu_Settings/ScrollContainer/Items/AllowGlow"]
+layout_mode = 2
+script = ExtResource("12_hhbxg")
+
 [node name="AllowCards" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
 layout_mode = 2
 
@@ -280,6 +295,7 @@ layout_mode = 2
 script = ExtResource("14_thihq")
 
 [node name="Menu_Info" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

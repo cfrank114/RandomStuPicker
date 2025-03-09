@@ -13,6 +13,7 @@ Menu_Settings_Graphics,图像
 Menu_Settings_Resolution,分辨率
 Menu_Settings_Fullscreen,全屏
 Menu_Settings_Allow_Cards,使用卡片
+Menu_Settings_Allow_Glow,使用光效
 Menu_Settings_Others,杂项
 Menu_Settings_Translations,翻译
 Menu_Settings_IsTabAtBottom,设置栏置底
