@@ -32,12 +32,13 @@ func set_card(number:int,type:String,allow_log=true,allow_cards=true,scaling=fal
 	if allow_log:print("Setting card:"+str(number)+" with type "+type)
 	if(allow_cards):
 		if Globals.data["data"]["settings"]["allow_glow_effect"]:
+			await shader != null
 			$card.material.shader=shader
 			var intensity=0
 			if type=="gold":
 				intensity=0.5
 			elif type=="purple":
-				intensity=0.5
+				intensity=0.3
 			elif type=="blue":
 				intensity=0.2
 			elif type=="pink":

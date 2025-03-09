@@ -29,7 +29,7 @@ func create_card() -> void:
 			c.set_pos(self.position+self.size/2)
 		else:
 			var tmp = card_list.pop_front()
-			get_tree().root.remove_child(tmp)
+			$"..".remove_child(tmp)
 			c.set_pos(Globals.dest,false)
 		card_list.append(c)
 		Globals.history.append(Globals.card_number[Globals.ind])
