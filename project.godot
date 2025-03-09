@@ -47,6 +47,20 @@ folder_colors={
 "res://scenes/special_scene/": "green"
 }
 
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194310,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+pointing/emulate_mouse_from_touch=false
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://locales/de_DE.de_DE.translation", "res://locales/en_US.en_US.translation", "res://locales/es_ES.es_ES.translation", "res://locales/fr_FR.fr_FR.translation", "res://locales/ja_JP.ja_JP.translation", "res://locales/zh_CN.zh_CN.translation", "res://locales/zh_TW.zh_TW.translation")
@@ -55,7 +69,6 @@ locale/fallback="en_US"
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true

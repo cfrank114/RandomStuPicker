@@ -43,7 +43,7 @@ const number_color={
 	
 const glow_color={
 	"normal":Vector4(0,0,0,255),
-	"gold":Vector4(107,80,32,255),
+	"gold":Vector4(178,119,85,255),
 	"purple":Vector4(83,48,191,255),
 	"blue":Vector4(107,126,149,255),
 	"pink":Vector4(195,63,123,255)

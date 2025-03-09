@@ -14,7 +14,7 @@ func _process(delta):
 			$"..".remove_child(c)
 			card_list.pop_front()
 
-func _pressed() -> void:
+func create_card() -> void:
 	if not Globals.need_shuffle:
 		print("Creating new card at "+str(self.position+self.size/2))
 		var c = card.instantiate()
@@ -41,4 +41,6 @@ func _pressed() -> void:
 			while Globals.history.size()>Globals.total:
 				Globals.history.pop_front()
 		Globals.ind=0
-	
+
+func _pressed() -> void:
+	create_card()

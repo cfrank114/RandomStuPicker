@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2ywoof6fdwf0"]
+[gd_scene load_steps=16 format=3 uid="uid://d2ywoof6fdwf0"]
 
 [ext_resource type="Shader" uid="uid://n2yutwag1eed" path="res://scenes/background.gdshader" id="1_o6pei"]
 [ext_resource type="Script" uid="uid://bpsx2cn8j4476" path="res://scenes/picker.gd" id="1_w4d43"]
@@ -16,6 +16,21 @@ shader = ExtResource("1_o6pei")
 shader_parameter/speed = 0.025
 shader_parameter/freq = 3.0
 shader_parameter/blurness = 0.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_8pljb"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_y8deb"]
+events = [SubResource("InputEventKey_8pljb")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_y8deb"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_fpbdc"]
+events = [SubResource("InputEventKey_y8deb")]
 
 [node name="picker" type="Control"]
 layout_mode = 3
@@ -45,6 +60,7 @@ texture = ExtResource("2_e6707")
 [node name="MainButton" type="TextureButton" parent="."]
 z_index = 1
 z_as_relative = false
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -57,12 +73,15 @@ offset_right = 100.0
 grow_horizontal = 2
 grow_vertical = 0
 button_mask = 7
+shortcut = SubResource("Shortcut_y8deb")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("3_noitr")
 texture_pressed = ExtResource("4_jyl87")
 stretch_mode = 0
 script = ExtResource("5_b0au0")
 
 [node name="QuitButton" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -77,6 +96,7 @@ stretch_mode = 0
 script = ExtResource("8_n634a")
 
 [node name="SettingsButton" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.95
@@ -87,6 +107,8 @@ offset_left = -100.0
 offset_top = -100.0
 grow_horizontal = 0
 grow_vertical = 0
+shortcut = SubResource("Shortcut_fpbdc")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("9_v5r5t")
 stretch_mode = 0
 script = ExtResource("10_85xoc")

@@ -1,13 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://cyevv3513c0k8"]
+[gd_scene load_steps=25 format=3 uid="uid://cyevv3513c0k8"]
 
 [ext_resource type="Texture2D" uid="uid://c0b13nvkqsh8y" path="res://assets/cards.png" id="1_nqi22"]
 [ext_resource type="Script" uid="uid://dhgc7aj3keghv" path="res://scenes/card/card.gd" id="1_usp27"]
 [ext_resource type="Material" uid="uid://btpdlpt8tuesk" path="res://scenes/card/number.tres" id="2_rnfjb"]
 [ext_resource type="Shader" uid="uid://chfv1bpuwpo33" path="res://scenes/card/number.gdshader" id="3_06563"]
 [ext_resource type="Texture2D" uid="uid://kk3ye5boawad" path="res://assets/numbers.png" id="3_b4nfw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2sko"]
-resource_local_to_scene = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65gnn"]
 atlas = ExtResource("1_nqi22")
@@ -216,18 +213,20 @@ animations = [{
 script = ExtResource("1_usp27")
 
 [node name="card" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_b2sko")
+texture_filter = 1
 scale = Vector2(100, 100)
 sprite_frames = SubResource("SpriteFrames_m3asa")
-animation = &"pink"
+animation = &"gold"
 
 [node name="number_a" type="AnimatedSprite2D" parent="card"]
+texture_filter = 1
 material = SubResource("ShaderMaterial_n783q")
 position = Vector2(-2.5, -3)
 sprite_frames = SubResource("SpriteFrames_fpis3")
 animation = &"9"
 
 [node name="number_b" type="AnimatedSprite2D" parent="card"]
+texture_filter = 1
 material = ExtResource("2_rnfjb")
 position = Vector2(3.5, -3)
 sprite_frames = SubResource("SpriteFrames_fpis3")

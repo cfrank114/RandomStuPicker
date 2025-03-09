@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bjakb5fqhtj3p"]
+[gd_scene load_steps=28 format=3 uid="uid://bjakb5fqhtj3p"]
 
 [ext_resource type="Script" uid="uid://bnwqv1va38mcd" path="res://scenes/settings/settings.gd" id="1_t0d3t"]
 [ext_resource type="Shader" uid="uid://n2yutwag1eed" path="res://scenes/background.gdshader" id="1_y0nas"]
@@ -37,6 +37,13 @@ font_color = Color(0.512776, 0.995466, 1, 1)
 font = ExtResource("7_vtash")
 font_size = 64
 font_color = Color(0, 0.641315, 0.863305, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_hhbxg"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_pryes"]
+events = [SubResource("InputEventKey_hhbxg")]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -352,6 +359,7 @@ Menu_Info_Description_BugReport :https://github.com/cfrank114/RandomStuPicker/is
 label_settings = ExtResource("4_mq77w")
 
 [node name="ReturnButton" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.05
@@ -361,6 +369,8 @@ anchor_bottom = 0.95
 offset_top = -100.0
 offset_right = 100.0
 grow_vertical = 0
+shortcut = SubResource("Shortcut_pryes")
+shortcut_in_tooltip = false
 texture_normal = ExtResource("5_3x8nv")
 stretch_mode = 0
 script = ExtResource("8_msj54")
