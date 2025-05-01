@@ -14,22 +14,23 @@ const data_template = {
 				"7":[40,49]
 				},
 			"special":[12]
-				},
-			"settings":{
-				"allow_cards":true,
-				"allow_cp":false,
-				"allow_glow_effect":true,
-				"auto_erase_history":true,
-				"except":[6,32,42],
-				"fullscreen":true,
-				"lang":"en_US",
-				"range":[1,49],
-				"res":"1920x1080",
-				"tab_at_bottom":false
-				}
 			},
-		"version":"1.3-alpha1"
-	}
+		"settings":{
+			"allow_cards":true,
+			"allow_cp":false,
+			"allow_glow_effect":true,
+			"auto_erase_history":true,
+			"background":null,
+			"except":[6,32,42],
+			"fullscreen":true,
+			"lang":"en_US",
+			"range":[1,49],
+			"res":"1920x1080",
+			"tab_at_bottom":false,
+			}
+		},
+	"version":"1.3-alpha2"
+}
 
 const uni_pass="cgfirbabnekroiosfh7497sm182938114514"
 
@@ -43,16 +44,52 @@ const number_color={
 	
 const glow_color={
 	"normal":Vector4(0,0,0,255),
-	"gold":Vector4(178,119,85,255),
-	"purple":Vector4(83,48,191,255),
-	"blue":Vector4(107,126,149,255),
+	"gold":Vector4(160,79,141,255),
+	"purple":Vector4(187,102,213,255),
+	"blue":Vector4(130,146,192,255),
 	"pink":Vector4(195,63,123,255)
 	}
 	
 const res = {
-	"1920x1080":Vector2(1920,1080),
-	"1200x720":Vector2(1200,720),
-	"960x540":Vector2(960,540)
+	# 超宽屏/带鱼屏
+	"5120x1440": Vector2(5120, 1440),  # 32:9 超宽屏
+	"3440x1440": Vector2(3440, 1440),  # 21:9 带鱼屏
+	"2560x1080": Vector2(2560, 1080),  # 21:9 入门带鱼屏
+	
+	# 16:9 标准比例
+	"7680x4320": Vector2(7680, 4320),  # 8K
+	"3840x2160": Vector2(3840, 2160),  # 4K
+	"2560x1440": Vector2(2560, 1440),  # 2K/QHD
+	"1920x1080": Vector2(1920, 1080),  # FHD
+	"1600x900": Vector2(1600, 900),
+	"1366x768": Vector2(1366, 768),    # 笔记本常见
+	"1280x720": Vector2(1280, 720),    # HD
+	
+	# 16:10 生产力比例
+	"3840x2400": Vector2(3840, 2400),  # Surface Pro 9
+	"2560x1600": Vector2(2560, 1600),
+	"1920x1200": Vector2(1920, 1200),
+	
+	# 平板设备
+	"2048x1536": Vector2(2048, 1536),  # iPad Pro 11寸
+	"2388x1668": Vector2(2388, 1668),  # Surface Pro 8
+	
+	# 移动设备竖屏
+	"1440x2560": Vector2(1440, 2560),  # 手机QHD竖屏
+	"1080x1920": Vector2(1080, 1920),  # 手机FHD竖屏
+	"720x1280": Vector2(720, 1280),    # 手机HD竖屏
+	
+	# 传统比例
+	"1600x1200": Vector2(1600, 1200),  # 4:3 专业显示器
+	"1024x768": Vector2(1024, 768),    # 4:3 XGA
+	"800x600": Vector2(800, 600),      # 旧式设备
+	
+	# 你的原始数据
+	"1200x720": Vector2(1200, 720),
+	"960x540": Vector2(960, 540),
+	
+	# 特殊用途
+	"4096x2160": Vector2(4096, 2160)   # 4K DCI 电影标准
 }
 
 const step = 2
@@ -72,12 +109,11 @@ var data = data_template.duplicate(true)
 
 var data_loaded = false
 
-var total = data["data"]["settings"]["range"][1]-data["data"]["settings"]["range"][0]+1-len(data["data"]["settings"]["except"])
+var total = 0
 var card_number = []
 var card_type = []
 
 var need_shuffle = true
-var settings_changed = false
 var ind = 0
 
 var history = []
@@ -106,21 +142,29 @@ func _ready():
 	else:
 		print("Data File not fund")
 		create()
+		
 	print("Checking data")
 	data = check_and_fix_data(data,data_template)
 	data["version"]=ProjectSettings.get_setting("application/config/version")
 	print("Checked")
-	total = data["data"]["settings"]["range"][1]-data["data"]["settings"]["range"][0]+1-len(data["data"]["settings"]["except"])
+	
 	print("TranslationServer Set:",data["data"]["settings"]["lang"])
 	TranslationServer.set_locale(data["data"]["settings"]["lang"])
+	
 	print("Window Rescaling")
 	if data["data"]["settings"]["fullscreen"]:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
-		get_window().size=res[Globals.data["data"]["settings"]["res"]]
-		get_window().position=Vector2(120,100)
+		if change_res(res[Globals.data["data"]["settings"]["res"]])==-1:
+			Globals.data["data"]["settings"]["res"]="800x600"
+			print("Invalid res found, replacing with 800x600")
+			change_res(res[Globals.data["data"]["settings"]["res"]])
 		
 	print("Data initiate complete")
+	print("Calculating total number of students")
+	
+	calculate_total()
+	
 	print("Entering picker.tscn")
 	
 func create():
@@ -154,22 +198,16 @@ func save():
 	print("Saved")
 
 func check_and_fix_data(data: Dictionary, default_values: Dictionary, parent_key: String = "") -> Dictionary:
-	# 遍历默认值字典进行校验
 	for key in default_values:
-		# 构造完整键路径用于调试信息
 		var full_key = "%s/%s" % [parent_key, key] if parent_key else key
 		
-		# 检查字段是否存在
 		if not key in data:
-			# 如果字段缺失，使用默认值填充
 			print("Fixing missing data:", full_key)
 			data[key] = default_values[key].duplicate(true) if default_values[key] is Dictionary else default_values[key]
 		
 		else:
-			# 递归处理嵌套字典
 			if data[key] is Dictionary and default_values[key] is Dictionary and key != "cp":
 				data[key] = check_and_fix_data(data[key], default_values[key], full_key)
-			# 类型不匹配时的错误处理
 			elif typeof(data[key]) != typeof(default_values[key]):
 				push_error("Type not match while checking: %s (Expected %s, Found %s)" % [
 					full_key,
@@ -184,3 +222,35 @@ func _notification(what: int) -> void:
 		print("App Closing")
 		save()
 	
+func  calculate_total():
+	var except_array = Globals.data["data"]["settings"]["except"]
+	var seen = {}
+	var result = []
+
+	for num in except_array:
+		if not seen.has(num):
+			seen[num] = true
+			result.append(num)
+
+	Globals.data["data"]["settings"]["except"] = result
+	var start = data["data"]["settings"]["range"][0]
+	var end = data["data"]["settings"]["range"][1]
+	var except_set = data["data"]["settings"]["except"].filter(func(x): return x >= start and x <= end)
+	total = (end - start + 1) - except_set.size()
+
+func change_res(resolution):
+	if resolution in res.values() and resolution.x<=DisplayServer.screen_get_size(DisplayServer.window_get_current_screen()).x and resolution.y<=DisplayServer.screen_get_size(DisplayServer.window_get_current_screen()).y:
+		get_window().size=resolution
+		# 获取屏幕和窗口尺寸
+		var screen_size = DisplayServer.screen_get_size(DisplayServer.window_get_current_screen())
+		var window_size = resolution
+		# 计算居中坐标
+		var centered_pos = Vector2i(
+			(screen_size.x - window_size.x) / 2,
+			(screen_size.y - window_size.y) / 2
+		)
+		# 设置窗口位置（适用于4.0+）
+		DisplayServer.window_set_position(centered_pos)
+		RenderingServer.force_draw()
+	else:
+		return -1

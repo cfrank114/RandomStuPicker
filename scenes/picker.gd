@@ -95,5 +95,18 @@ func random_shuffle():
 
 func _process(delta):
 	if Globals.need_shuffle:
+		if Globals.total<=1:
+			$MainButton.disabled=true
+			return
+		if $MainButton.disabled:
+			$MainButton.disabled=false
 		random_shuffle()
 		Globals.need_shuffle=false
+		
+func _ready():
+	if Globals.data["data"]["settings"]["background"] == null:
+		var no = randi_range(1,3)
+		$Background.texture=load("res://assets/backgrounds/background"+str(no)+".png")
+
+	else:
+		$Background.texture=load(Globals.data["data"]["settings"]["background"])

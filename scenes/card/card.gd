@@ -4,7 +4,7 @@ extends Node2D
 @onready var number_b = $card/number_b
 @onready var card = $card
 @onready var number_colors = Globals.number_color
-@onready var glow_colors = Globals.number_color
+@onready var glow_colors = Globals.glow_color
 @onready var shader = preload("res://scenes/card/card.gdshader") 
 @export var finished=false
 

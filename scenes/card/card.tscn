@@ -220,7 +220,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_2ufkr")
 scale = Vector2(100, 100)
 sprite_frames = SubResource("SpriteFrames_m3asa")
-animation = &"gold"
+animation = &"blue"
 
 [node name="number_a" type="AnimatedSprite2D" parent="card"]
 texture_filter = 1

@@ -1,0 +1,32 @@
+id,zh_CN,en_US,de_DE,es_ES,fr_FR,ja_JP,zh_TW
+Error,错误,Error,Fehler,Error,Erreur,エラー,錯誤
+Warning,警告,Warning,Warnung,Advertencia,Avertissement,警告,警告
+
+Menu_History,历史,History,Verlauf,Historial,Historique,履歴,歷史
+Menu_Settings,设置,Settings,Einstellungen,Configuración,Paramètres,設定,設定
+Menu_Info,关于,Info,Info,Información,Informations,情報,關於
+
+Menu_History_None,暂无历史记录,No history exists yet...,Kein Verlauf vorhanden,No hay historial aún...,Aucun historique existant...,履歴がありません,暫無歷史記錄
+
+Menu_Settings_PickerSettings,抽取设置,Picker Settings,Auswahleinstellungen,Configuración de selección,Paramètres de sélection,抽選設定,抽取設定
+Menu_Settings_Range,范围,Range,Bereich,Rango,Plage,範囲,範圍
+Menu_Settings_Except,排除,Exceptions,Ausnahmen,Excepciones,Exceptions,除外,排除
+Menu_Settings_Graphics,图像,Graphics,Grafik,Gráficos,Graphiques,グラフィック,圖像
+Menu_Settings_Resolution,分辨率,Resolution,Auflösung,Resolución,Résolution,解像度,解析度
+Menu_Settings_Fullscreen,全屏,Fullscreen,Vollbild,Pantalla completa,Plein écran,フルスクリーン,全螢幕
+Menu_Settings_Allow_Cards,使用卡片,Allow Using Cards,Karten verwenden,Permitir tarjetas,Activer les cartes,カードを使用,使用卡片
+Menu_Settings_Allow_Glow,使用光效,Allow Cards Glow,Kartenglühen aktivieren,Efecto luminoso,Effet lumineux,光効果を使用,使用光效
+Menu_Settings_Others,杂项,Others,Sonstiges,Otros,Autres,その他,雜項
+Menu_Settings_Translations,翻译,Translations,Übersetzungen,Traducciones,Traductions,翻訳,翻譯
+Menu_Settings_IsTabAtBottom,设置栏置底,Set Menu Bar at bottom,Menüleiste unten positionar,Barra inferior,Barre de menu en bas,メニューバーを下部に設定,設定欄置底
+Menu_Settings_AutoEraseHistory,自动清空历史,Erase History Automatically,Verlauf automatisch löschen,Borrar historial automáticamente,Effacer l'historique automatiquement,履歴を自動消去,自動清空歷史
+
+Menu_Info_Info,关于,Info,Informationen,Información,Informations,情報,關於
+Menu_Info_Ver,版本,Version,Version,Versión,Version,バージョン,版本
+Menu_Info_Ver_Software,软件版本,Software,Softwareversion,Versión del software,Version logicielle,ソフトウェアバージョン,軟體版本
+Menu_Info_Ver_Datapack,数据包版本,Datapack,Datenpaketversion,Versión de datos,Version des données,データパックバージョン,資料包版本
+Menu_Info_Description,说明,Descriptions,Beschreibung,Descripción,Description,説明,說明
+Menu_Info_Description_Author,作者,Author,Autor,Autor,Auteur,作者,作者
+Menu_Info_Description_BugReport,错误反馈,Bug Reports,Fehlermeldung,Reportar errores,Signaler un bug,バグ報告,錯誤回報
+
+Menu_Settings_Total_Zero,当前无可用选项。,There are currently no usable options.,Keine verfügbaren Optionen.,No hay opciones disponibles.,Aucune option disponible.,利用可能なオプションがありません。,目前無可用選項。

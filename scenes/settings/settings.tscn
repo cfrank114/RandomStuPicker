@@ -1,10 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://bjakb5fqhtj3p"]
+[gd_scene load_steps=26 format=3 uid="uid://bjakb5fqhtj3p"]
 
 [ext_resource type="Script" uid="uid://bnwqv1va38mcd" path="res://scenes/settings/settings.gd" id="1_t0d3t"]
 [ext_resource type="Shader" uid="uid://n2yutwag1eed" path="res://scenes/background.gdshader" id="1_y0nas"]
 [ext_resource type="Texture2D" uid="uid://cyp4mpqgg8t7m" path="res://assets/background.jpeg" id="2_ppmro"]
-[ext_resource type="Script" uid="uid://k003s4pdfc86" path="res://scenes/settings/from.gd" id="2_qee63"]
-[ext_resource type="Script" uid="uid://c2ovginhyqes1" path="res://scenes/settings/to.gd" id="3_vvmdj"]
 [ext_resource type="LabelSettings" uid="uid://dp4fvk4xiulpv" path="res://scenes/settings/normal.tres" id="4_mq77w"]
 [ext_resource type="Script" uid="uid://upgnaqnpyo8w" path="res://scenes/settings/item_list.gd" id="4_oftwq"]
 [ext_resource type="Texture2D" uid="uid://b2s38q8uvegif" path="res://assets/back.png" id="5_3x8nv"]
@@ -145,12 +143,10 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme = ExtResource("5_jtk6j")
 rounded = true
-script = ExtResource("2_qee63")
 
 [node name="To" type="SpinBox" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Range"]
 layout_mode = 2
 theme = ExtResource("5_jtk6j")
-script = ExtResource("3_vvmdj")
 
 [node name="Except" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
 layout_mode = 2
@@ -201,6 +197,23 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(200, 120)
 layout_mode = 2
 script = ExtResource("4_oftwq")
+
+[node name="Background" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Background"]
+layout_mode = 2
+text = "Menu_Settings_Background"
+
+[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Background"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Background" type="Button" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Background"]
+layout_mode = 2
+
+[node name="FileDialog" type="FileDialog" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background"]
 
 [node name="Fullscreen" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
 layout_mode = 2
@@ -389,5 +402,9 @@ grow_vertical = 0
 label_settings = ExtResource("4_mq77w")
 script = ExtResource("16_itn8q")
 
+[connection signal="ready" from="TabContainer/Menu_Settings/ScrollContainer/Items/Range/From" to="." method="_on_from_ready"]
+[connection signal="value_changed" from="TabContainer/Menu_Settings/ScrollContainer/Items/Range/From" to="." method="_on_from_value_changed"]
+[connection signal="ready" from="TabContainer/Menu_Settings/ScrollContainer/Items/Range/To" to="." method="_on_to_ready"]
+[connection signal="value_changed" from="TabContainer/Menu_Settings/ScrollContainer/Items/Range/To" to="." method="_on_to_value_changed"]
 [connection signal="item_selected" from="TabContainer/Menu_Settings/ScrollContainer/Items/Res/ItemList" to="TabContainer/Menu_Settings/ScrollContainer/Items/Res" method="_on_item_list_item_selected"]
 [connection signal="item_selected" from="TabContainer/Menu_Settings/ScrollContainer/Items/Translations/OptionButton" to="TabContainer/Menu_Settings/ScrollContainer/Items/Translations/OptionButton" method="_on_item_selected"]

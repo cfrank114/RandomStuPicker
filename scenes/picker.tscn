@@ -1,11 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2ywoof6fdwf0"]
+[gd_scene load_steps=17 format=3 uid="uid://d2ywoof6fdwf0"]
 
 [ext_resource type="Shader" uid="uid://n2yutwag1eed" path="res://scenes/background.gdshader" id="1_o6pei"]
 [ext_resource type="Script" uid="uid://bpsx2cn8j4476" path="res://scenes/picker.gd" id="1_w4d43"]
-[ext_resource type="Texture2D" uid="uid://cyp4mpqgg8t7m" path="res://assets/background.jpeg" id="2_e6707"]
+[ext_resource type="Texture2D" uid="uid://dsgrj2hp1n7bd" path="res://assets/backgrounds/background1.png" id="3_fpbdc"]
 [ext_resource type="Texture2D" uid="uid://rx5rlwvn0y2a" path="res://assets/MainButton_normal.png" id="3_noitr"]
 [ext_resource type="Texture2D" uid="uid://df8rkjeo6y0lx" path="res://assets/MainButton_pressed.png" id="4_jyl87"]
 [ext_resource type="Script" uid="uid://cxdup15xykarf" path="res://scenes/main_button.gd" id="5_b0au0"]
+[ext_resource type="Texture2D" uid="uid://vs6fv2c6u45f" path="res://assets/MainButton_disabled.png" id="6_y8deb"]
 [ext_resource type="Texture2D" uid="uid://bdts1pkh0abau" path="res://assets/close.png" id="7_mhpgj"]
 [ext_resource type="Script" uid="uid://djkv7qivbnrvu" path="res://scenes/quit_button.gd" id="8_n634a"]
 [ext_resource type="Texture2D" uid="uid://du0xw4w6fu5w2" path="res://assets/more.png" id="9_v5r5t"]
@@ -43,19 +44,15 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 script = ExtResource("1_w4d43")
 
-[node name="Backgorund" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_q00xh")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -408.0
-offset_top = -228.0
-offset_right = 408.0
-offset_bottom = 228.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_e6707")
+texture = ExtResource("3_fpbdc")
 
 [node name="MainButton" type="TextureButton" parent="."]
 z_index = 1
@@ -77,6 +74,7 @@ shortcut = SubResource("Shortcut_y8deb")
 shortcut_in_tooltip = false
 texture_normal = ExtResource("3_noitr")
 texture_pressed = ExtResource("4_jyl87")
+texture_disabled = ExtResource("6_y8deb")
 stretch_mode = 0
 script = ExtResource("5_b0au0")
 
