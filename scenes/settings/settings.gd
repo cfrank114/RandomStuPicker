@@ -13,6 +13,10 @@ func _ready():
 	translate()
 	node_from.value=int(Globals.data["data"]["settings"]["range"][0])
 	node_to.value=int(Globals.data["data"]["settings"]["range"][1])
+	if Globals.data["data"]["settings"]["background"] == null:
+		$Background.texture=load("res://assets/backgrounds/background"+str(Globals.background_no)+".png")
+	else:
+		$Background.texture=load(Globals.data["data"]["settings"]["background"])
 
 
 func _on_from_value_changed(new_value: float) -> void:

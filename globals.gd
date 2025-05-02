@@ -115,6 +115,7 @@ var card_type = []
 
 var need_shuffle = true
 var ind = 0
+var background_no=1
 
 var history = []
 
@@ -166,6 +167,7 @@ func _ready():
 	calculate_total()
 	
 	print("Entering picker.tscn")
+	background_no=randi_range(1,3)
 	
 func create():
 	print("Creating data file.")

@@ -105,8 +105,7 @@ func _process(delta):
 		
 func _ready():
 	if Globals.data["data"]["settings"]["background"] == null:
-		var no = randi_range(1,3)
-		$Background.texture=load("res://assets/backgrounds/background"+str(no)+".png")
+		$Background.texture=load("res://assets/backgrounds/background"+str(Globals.background_no)+".png")
 
 	else:
 		$Background.texture=load(Globals.data["data"]["settings"]["background"])
