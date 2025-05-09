@@ -23,7 +23,8 @@ Stable : Godot 4.3.stable
 Ver 1.3
 
 1. Added glow effect
-2. Bugfix
+2. Add background customize
+3. Bugfix
 
 Ver 1.2.2
 1. Added translations
