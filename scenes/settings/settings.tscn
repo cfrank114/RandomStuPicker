@@ -1,8 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://bjakb5fqhtj3p"]
+[gd_scene load_steps=27 format=3 uid="uid://bjakb5fqhtj3p"]
 
 [ext_resource type="Script" uid="uid://bnwqv1va38mcd" path="res://scenes/settings/settings.gd" id="1_t0d3t"]
 [ext_resource type="Shader" uid="uid://n2yutwag1eed" path="res://scenes/background.gdshader" id="1_y0nas"]
-[ext_resource type="Texture2D" uid="uid://cyp4mpqgg8t7m" path="res://assets/background.jpeg" id="2_ppmro"]
+[ext_resource type="Texture2D" uid="uid://dsgrj2hp1n7bd" path="res://assets/backgrounds/background1.png" id="3_32oqa"]
 [ext_resource type="LabelSettings" uid="uid://dp4fvk4xiulpv" path="res://scenes/settings/normal.tres" id="4_mq77w"]
 [ext_resource type="Script" uid="uid://upgnaqnpyo8w" path="res://scenes/settings/item_list.gd" id="4_oftwq"]
 [ext_resource type="Texture2D" uid="uid://b2s38q8uvegif" path="res://assets/back.png" id="5_3x8nv"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://b3568hqqk8s5n" path="res://assets/font.ttf" id="7_vtash"]
 [ext_resource type="Script" uid="uid://d34gji3hi5fvg" path="res://scenes/settings/res.gd" id="8_clatf"]
 [ext_resource type="Script" uid="uid://calfomj64qsld" path="res://scenes/settings/return_button.gd" id="8_msj54"]
+[ext_resource type="Script" uid="uid://dkw26cgcsy5xm" path="res://scenes/settings/background.gd" id="10_32oqa"]
 [ext_resource type="Script" uid="uid://c5lqiwj4q2lvc" path="res://scenes/settings/fullscreen.gd" id="11_64vls"]
 [ext_resource type="Script" uid="uid://k21gyq4xmcax" path="res://scenes/settings/trmenu.gd" id="11_gxqj1"]
 [ext_resource type="Script" uid="uid://bb0obfihsbhhw" path="res://scenes/settings/tabs_at_bottom.gd" id="12_842ru"]
@@ -21,9 +22,9 @@
 [ext_resource type="Script" uid="uid://3nlc1n0x1cyp" path="res://scenes/settings/label.gd" id="16_itn8q"]
 [ext_resource type="Script" uid="uid://c0chlscsknwjm" path="res://scenes/settings/menuinfolabel.gd" id="17_1lbhy"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b688o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hhbxg"]
 shader = ExtResource("1_y0nas")
-shader_parameter/speed = 0.025
+shader_parameter/speed = 0.001
 shader_parameter/freq = 3.0
 shader_parameter/blurness = 0.0
 
@@ -53,7 +54,7 @@ grow_vertical = 2
 script = ExtResource("1_t0d3t")
 
 [node name="Background" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_b688o")
+material = SubResource("ShaderMaterial_hhbxg")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,7 +65,7 @@ offset_right = 408.0
 offset_bottom = 228.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ppmro")
+texture = ExtResource("3_32oqa")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -198,23 +199,6 @@ custom_minimum_size = Vector2(200, 120)
 layout_mode = 2
 script = ExtResource("4_oftwq")
 
-[node name="Background" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
-visible = false
-layout_mode = 2
-
-[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Background"]
-layout_mode = 2
-text = "Menu_Settings_Background"
-
-[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Background"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Background" type="Button" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Background"]
-layout_mode = 2
-
-[node name="FileDialog" type="FileDialog" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background"]
-
 [node name="Fullscreen" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
 layout_mode = 2
 
@@ -229,6 +213,29 @@ size_flags_horizontal = 3
 [node name="TabPos" type="CheckButton" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Fullscreen"]
 layout_mode = 2
 script = ExtResource("11_64vls")
+
+[node name="Background" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Background"]
+layout_mode = 2
+text = "Menu_Settings_Background"
+
+[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Background"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Background" type="Button" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Background"]
+layout_mode = 2
+script = ExtResource("10_32oqa")
+
+[node name="FileDialog" type="FileDialog" parent="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background"]
+title = "Open a File"
+initial_position = 1
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png, *.jpg, *.jpeg;Image")
 
 [node name="AllowGlow" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
 layout_mode = 2
@@ -313,6 +320,22 @@ size_flags_horizontal = 3
 [node name="History" type="CheckButton" parent="TabContainer/Menu_Settings/ScrollContainer/Items/History"]
 layout_mode = 2
 script = ExtResource("14_thihq")
+
+[node name="FastCPTurnOff" type="HBoxContainer" parent="TabContainer/Menu_Settings/ScrollContainer/Items"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Menu_Settings/ScrollContainer/Items/FastCPTurnOff"]
+layout_mode = 2
+text = "CP OFF"
+
+[node name="Control" type="Control" parent="TabContainer/Menu_Settings/ScrollContainer/Items/FastCPTurnOff"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Turnoffcp" type="Button" parent="TabContainer/Menu_Settings/ScrollContainer/Items/FastCPTurnOff"]
+layout_mode = 2
+text = "TURN OFF"
 
 [node name="Menu_Info" type="Control" parent="TabContainer"]
 visible = false
@@ -402,10 +425,17 @@ grow_vertical = 0
 label_settings = ExtResource("4_mq77w")
 script = ExtResource("16_itn8q")
 
-[connection signal="ready" from="Background" to="." method="_on_backgorund_ready"]
 [connection signal="ready" from="TabContainer/Menu_Settings/ScrollContainer/Items/Range/From" to="." method="_on_from_ready"]
 [connection signal="value_changed" from="TabContainer/Menu_Settings/ScrollContainer/Items/Range/From" to="." method="_on_from_value_changed"]
 [connection signal="ready" from="TabContainer/Menu_Settings/ScrollContainer/Items/Range/To" to="." method="_on_to_ready"]
 [connection signal="value_changed" from="TabContainer/Menu_Settings/ScrollContainer/Items/Range/To" to="." method="_on_to_value_changed"]
 [connection signal="item_selected" from="TabContainer/Menu_Settings/ScrollContainer/Items/Res/ItemList" to="TabContainer/Menu_Settings/ScrollContainer/Items/Res" method="_on_item_list_item_selected"]
+[connection signal="ready" from="TabContainer/Menu_Settings/ScrollContainer/Items/Fullscreen" to="." method="_on_fullscreen_ready"]
+[connection signal="canceled" from="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background/FileDialog" to="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background" method="_on_file_dialog_canceled"]
+[connection signal="close_requested" from="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background/FileDialog" to="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background" method="_on_file_dialog_close_requested"]
+[connection signal="confirmed" from="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background/FileDialog" to="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background" method="_on_file_dialog_confirmed"]
+[connection signal="file_selected" from="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background/FileDialog" to="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background" method="_on_file_dialog_file_selected"]
+[connection signal="ready" from="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background/FileDialog" to="TabContainer/Menu_Settings/ScrollContainer/Items/Background/Background" method="_on_file_dialog_ready"]
 [connection signal="item_selected" from="TabContainer/Menu_Settings/ScrollContainer/Items/Translations/OptionButton" to="TabContainer/Menu_Settings/ScrollContainer/Items/Translations/OptionButton" method="_on_item_selected"]
+[connection signal="ready" from="TabContainer/Menu_Settings/ScrollContainer/Items/FastCPTurnOff" to="." method="_on_fast_cp_turn_off_ready"]
+[connection signal="pressed" from="TabContainer/Menu_Settings/ScrollContainer/Items/FastCPTurnOff/Turnoffcp" to="." method="_on_turnoffcp_pressed"]

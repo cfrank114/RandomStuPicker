@@ -146,6 +146,9 @@ func _ready():
 		
 	print("Checking data")
 	data = check_and_fix_data(data,data_template)
+	if data["data"]["settings"]["background"]!=null:
+		if not FileAccess.file_exists(data["data"]["settings"]["background"]):
+			data["data"]["settings"]["background"]=null
 	data["version"]=ProjectSettings.get_setting("application/config/version")
 	print("Checked")
 	
@@ -210,7 +213,7 @@ func check_and_fix_data(data: Dictionary, default_values: Dictionary, parent_key
 		else:
 			if data[key] is Dictionary and default_values[key] is Dictionary and key != "cp":
 				data[key] = check_and_fix_data(data[key], default_values[key], full_key)
-			elif typeof(data[key]) != typeof(default_values[key]):
+			elif typeof(data[key]) != typeof(default_values[key]) and key != "background":
 				push_error("Type not match while checking: %s (Expected %s, Found %s)" % [
 					full_key,
 					type_string(typeof(default_values[key])),
@@ -243,15 +246,12 @@ func  calculate_total():
 func change_res(resolution):
 	if resolution in res.values() and resolution.x<=DisplayServer.screen_get_size(DisplayServer.window_get_current_screen()).x and resolution.y<=DisplayServer.screen_get_size(DisplayServer.window_get_current_screen()).y:
 		get_window().size=resolution
-		# 获取屏幕和窗口尺寸
 		var screen_size = DisplayServer.screen_get_size(DisplayServer.window_get_current_screen())
 		var window_size = resolution
-		# 计算居中坐标
 		var centered_pos = Vector2i(
 			(screen_size.x - window_size.x) / 2,
 			(screen_size.y - window_size.y) / 2
 		)
-		# 设置窗口位置（适用于4.0+）
 		DisplayServer.window_set_position(centered_pos)
 		RenderingServer.force_draw()
 	else:

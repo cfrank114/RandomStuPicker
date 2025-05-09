@@ -1,6 +1,10 @@
 id,zh_CN,en_US,de_DE,es_ES,fr_FR,ja_JP,zh_TW
 Error,错误,Error,Fehler,Error,Erreur,エラー,錯誤
 Warning,警告,Warning,Warnung,Advertencia,Avertissement,警告,警告
+Open,打开,Open,Öffnen,Abrir,Ouvrir,開く,開啟
+Save,保存,Save,Speichern,Guardar,Enregistrer,保存,儲存
+Cancel,取消,Cancel,Abbrechen,Cancelar,Annuler,キャンセル,取消
+File:,文件：,File:,Datei:,Archivo:,Fichier :,ファイル：,檔案：
 
 Menu_History,历史,History,Verlauf,Historial,Historique,履歴,歷史
 Menu_Settings,设置,Settings,Einstellungen,Configuración,Paramètres,設定,設定
@@ -14,6 +18,8 @@ Menu_Settings_Except,排除,Exceptions,Ausnahmen,Excepciones,Exceptions,除外,�
 Menu_Settings_Graphics,图像,Graphics,Grafik,Gráficos,Graphiques,グラフィック,圖像
 Menu_Settings_Resolution,分辨率,Resolution,Auflösung,Resolución,Résolution,解像度,解析度
 Menu_Settings_Fullscreen,全屏,Fullscreen,Vollbild,Pantalla completa,Plein écran,フルスクリーン,全螢幕
+Menu_Settings_Background,背景,Background,Hintergrund,Fondo,Arrière-plan,背景,背景
+Menu_Settings_Background_None,未选择背景,No background selected,Kein Hintergrund ausgewählt,No se ha seleccionado ningún fondo,Aucun arrière-plan sélectionné,背景が選択されていません,未選擇背景
 Menu_Settings_Allow_Cards,使用卡片,Allow Using Cards,Karten verwenden,Permitir tarjetas,Activer les cartes,カードを使用,使用卡片
 Menu_Settings_Allow_Glow,使用光效,Allow Cards Glow,Kartenglühen aktivieren,Efecto luminoso,Effet lumineux,光効果を使用,使用光效
 Menu_Settings_Others,杂项,Others,Sonstiges,Otros,Autres,その他,雜項

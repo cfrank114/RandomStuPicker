@@ -108,4 +108,4 @@ func _ready():
 		$Background.texture=load("res://assets/backgrounds/background"+str(Globals.background_no)+".png")
 
 	else:
-		$Background.texture=load(Globals.data["data"]["settings"]["background"])
+		$Background.texture=ImageTexture.create_from_image(Image.load_from_file(Globals.data["data"]["settings"]["background"]))
