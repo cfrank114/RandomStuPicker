@@ -33,7 +33,7 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_fpbdc"]
 events = [SubResource("InputEventKey_y8deb")]
 
-[node name="Picker" type="Control"]
+[node name="picker" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,31 +54,11 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_fpbdc")
 
-[node name="Cards" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="UILayer" type="CanvasLayer" parent="."]
-layer = 128
-
-[node name="QuitButton" type="TextureButton" parent="UILayer"]
-texture_filter = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.95
-anchor_right = 0.05
-anchor_bottom = 0.95
-offset_top = -100.0
-offset_right = 100.0
-grow_vertical = 0
-texture_normal = ExtResource("7_mhpgj")
-stretch_mode = 0
-script = ExtResource("8_n634a")
-
-[node name="MainButton" type="TextureButton" parent="UILayer"]
+[node name="MainButton" type="TextureButton" parent="."]
+z_index = 1
 z_as_relative = false
 texture_filter = 1
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.95
@@ -98,8 +78,24 @@ texture_disabled = ExtResource("6_y8deb")
 stretch_mode = 0
 script = ExtResource("5_b0au0")
 
-[node name="SettingsButton" type="TextureButton" parent="UILayer"]
+[node name="QuitButton" type="TextureButton" parent="."]
 texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.95
+anchor_right = 0.05
+anchor_bottom = 0.95
+offset_top = -100.0
+offset_right = 100.0
+grow_vertical = 0
+texture_normal = ExtResource("7_mhpgj")
+stretch_mode = 0
+script = ExtResource("8_n634a")
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.95
 anchor_top = 0.95

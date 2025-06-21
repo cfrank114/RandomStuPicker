@@ -3,9 +3,10 @@ extends Node2D
 @onready var number_a = $card/number_a
 @onready var number_b = $card/number_b
 @onready var card = $card
+@onready var mask = $mask
 @onready var number_colors = Globals.number_color
 @onready var glow_colors = Globals.glow_color
-@onready var shader = preload("res://scenes/card/card.gdshader") 
+@onready var shader = preload("res://scenes/card/cardmask.gdshader") 
 @export var finished=false
 
 var _type=""
@@ -33,19 +34,20 @@ func set_card(number:int,type:String,allow_log=true,allow_cards=true,scaling=fal
 	if(allow_cards):
 		if Globals.data["data"]["settings"]["allow_glow_effect"]:
 			await shader != null
-			$card.material.shader=shader
+			mask.material.shader=shader
 			var intensity=0
 			if type=="gold":
-				intensity=0.5
+				intensity=0.8
 			elif type=="purple":
-				intensity=0.3
+				intensity=0.6
 			elif type=="blue":
-				intensity=0.2
+				intensity=0.4
 			elif type=="pink":
-				intensity=0.2
-			$card.material.set_shader_parameter("glow_color",glow_colors[type]/255)
-			$card.material.set_shader_parameter("intensity",intensity)
-			$card.material.set_shader_parameter("delta",randf())
+				intensity=0.4
+			mask.material.set_shader_parameter("glow_color",glow_colors[type]/255)
+			mask.material.set_shader_parameter("intensity",intensity)
+			mask.material.set_shader_parameter("delta",randf())
+			
 		number_a.material.set_shader_parameter("color",number_colors[type]/255)
 		number_b.material.set_shader_parameter("color",number_colors[type]/255)
 		card.play(type)

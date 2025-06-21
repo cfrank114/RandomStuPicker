@@ -1,6 +1,7 @@
 extends Control
 const card_type=["gold","purple","blue","normal"]
 @onready var type_num = [Globals.total*0.04,Globals.total*0.15]
+@onready var MainButton = $UILayer/MainButton
 func swap_with_ind(arr:Array,ind:Array,ida:int,idb:int):
 	var swap_location_a = ind[ida]
 	var swap_location_b = ind[idb]
@@ -96,10 +97,10 @@ func random_shuffle():
 func _process(delta):
 	if Globals.need_shuffle:
 		if Globals.total<=1:
-			$MainButton.disabled=true
+			MainButton.disabled=true
 			return
-		if $MainButton.disabled:
-			$MainButton.disabled=false
+		if MainButton.disabled:
+			MainButton.disabled=false
 		random_shuffle()
 		Globals.need_shuffle=false
 		

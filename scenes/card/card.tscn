@@ -1,13 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://cyevv3513c0k8"]
+[gd_scene load_steps=29 format=3 uid="uid://cyevv3513c0k8"]
 
 [ext_resource type="Texture2D" uid="uid://c0b13nvkqsh8y" path="res://assets/cards.png" id="1_nqi22"]
 [ext_resource type="Script" uid="uid://dhgc7aj3keghv" path="res://scenes/card/card.gd" id="1_usp27"]
 [ext_resource type="Material" uid="uid://btpdlpt8tuesk" path="res://scenes/card/number.tres" id="2_rnfjb"]
 [ext_resource type="Shader" uid="uid://chfv1bpuwpo33" path="res://scenes/card/number.gdshader" id="3_06563"]
 [ext_resource type="Texture2D" uid="uid://kk3ye5boawad" path="res://assets/numbers.png" id="3_b4nfw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ufkr"]
-resource_local_to_scene = true
+[ext_resource type="Shader" uid="uid://dnhq7ur8jmptt" path="res://scenes/card/cardmask.gdshader" id="6_kaf1t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65gnn"]
 atlas = ExtResource("1_nqi22")
@@ -212,12 +210,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ri62e"]
+resource_local_to_scene = true
+shader = ExtResource("6_kaf1t")
+shader_parameter/speed = 1.0
+shader_parameter/intensity = 1.0
+shader_parameter/glow_color = Color(0.2, 0.5, 1, 1)
+shader_parameter/edge_threshold = 0.5
+shader_parameter/delta = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaf1t"]
+atlas = ExtResource("1_nqi22")
+region = Rect2(32, 72, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ri62e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaf1t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Card" type="Node2D"]
 script = ExtResource("1_usp27")
 
 [node name="card" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-material = SubResource("ShaderMaterial_2ufkr")
 scale = Vector2(100, 100)
 sprite_frames = SubResource("SpriteFrames_m3asa")
 animation = &"blue"
@@ -235,3 +256,10 @@ material = ExtResource("2_rnfjb")
 position = Vector2(3.5, -3)
 sprite_frames = SubResource("SpriteFrames_fpis3")
 animation = &"9"
+
+[node name="mask" type="AnimatedSprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+material = SubResource("ShaderMaterial_ri62e")
+scale = Vector2(100, 100)
+sprite_frames = SubResource("SpriteFrames_ri62e")
