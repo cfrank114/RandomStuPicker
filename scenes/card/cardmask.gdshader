@@ -13,22 +13,26 @@ uniform float delta : hint_range(0,1)=0.0;
 
 
 void fragment() {
-    vec4 tex_color = texture(TEXTURE, UV);
-
-    float edge = smoothstep(edge_threshold - 0.1, edge_threshold + 0.1, tex_color.a);
-
-    vec2 noise_uv = UV * 2.0;
-	noise_uv.x*=0.5;
-    noise_uv.y += TIME * speed * 0.2;
-
-    float noise = texture(noise_tex, noise_uv).r;
-
-    float flow = sin(UV.x * 15.0 + TIME * speed * 4.0 + noise * 5.0 + delta) * 0.5 + 0.5+sin(UV.y * 15.0 + TIME * speed * 4.0 + noise * 5.0 + delta) * 0.5 + 0.5;
-
-    float final_glow = flow * noise * edge * intensity;
-
-    vec3 dynamic_color = glow_color.rgb * (sin(TIME * 2.0) * 0.3 + 0.7);
-
-    COLOR.rgb = texture(SCREEN_TEXTURE,SCREEN_UV).rgb+dynamic_color * final_glow;
-    COLOR.a = final_glow * 0.5;
+	if(intensity != 0.0){
+		vec4 tex_color = texture(TEXTURE, UV);
+		
+		float edge = smoothstep(edge_threshold - 0.1, edge_threshold + 0.1, tex_color.a);
+		
+		vec2 noise_uv = UV * 2.0;
+		noise_uv.x*=0.5;
+		noise_uv.y += TIME * speed * 0.2;
+		
+		float noise = texture(noise_tex, noise_uv).r;
+		
+		float flow = sin(UV.x * 15.0 + TIME * speed * 4.0 + noise * 5.0 + delta) * 0.5 + 0.5+sin(UV.y * 15.0 + TIME * speed * 4.0 + noise * 5.0 + delta) * 0.5 + 0.5;
+		
+		float final_glow = flow * noise * edge * intensity;
+		
+		vec3 dynamic_color = glow_color.rgb * (sin(TIME * 2.0) * 0.3 + 0.7);
+		
+		COLOR.rgb = texture(SCREEN_TEXTURE,SCREEN_UV).rgb+dynamic_color * final_glow;
+		COLOR.a = final_glow * 0.5;
+	}else{
+		COLOR.a=0.0;
+	}
 }

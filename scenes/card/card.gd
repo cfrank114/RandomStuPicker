@@ -51,10 +51,13 @@ func set_card(number:int,type:String,allow_log=true,allow_cards=true,scaling=fal
 		number_a.material.set_shader_parameter("color",number_colors[type]/255)
 		number_b.material.set_shader_parameter("color",number_colors[type]/255)
 		card.play(type)
+		mask.visible=true
 	else:
 		number_a.material.set_shader_parameter("color",Vector4(0,0,0,1))
 		number_b.material.set_shader_parameter("color",Vector4(0,0,0,1))
 		card.play("none")
+		mask.visible=false
+		
 	var num_a_value = number/10
 	var num_b_value = number%10
 	number_a.play(str(num_a_value))
