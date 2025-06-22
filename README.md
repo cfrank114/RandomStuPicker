@@ -2,7 +2,7 @@
 
 #### A software used to pick students randomly
 ![icon](https://github.com/user-attachments/assets/8a4a5f15-f1c3-4093-a3d0-e4a7dd1027fe)  
-Stable Latest : 1.3  
+Stable Latest : 1.3.1
 Alpha Latest : 1.3.a3
 
 Development Software:  
